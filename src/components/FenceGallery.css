@@ -1,0 +1,26 @@
+.fence-gallery {
+  background-color: var(--blanco-puro);
+}
+
+.fence-gallery h2 {
+  color: var(--gris-oscuro);
+}
+
+.fence-gallery .card {
+  background-color: var(--blanco-puro);
+  border: 1px solid var(--gris-concreto);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.fence-gallery .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.fence-gallery .card-title {
+  color: var(--gris-oscuro);
+}
+
+.fence-gallery .card-text {
+  color: var(--gris-oscuro);
+}

@@ -1,0 +1,28 @@
+.footer {
+  background-color: var(--blanco-puro);
+  padding: 4rem 0;
+  border-top: 1px solid var(--gris-concreto);
+}
+
+.footer h5 {
+  color: var(--gris-oscuro);
+  font-weight: 700;
+}
+
+.footer p,
+.footer li {
+  color: var(--gris-oscuro);
+}
+
+.footer hr {
+  border-top-color: var(--gris-concreto);
+}
+
+.footer-contact-nav .nav-link {
+  color: var(--gris-oscuro);
+  transition: color 0.3s ease;
+}
+
+.footer-contact-nav .nav-link:hover {
+  color: var(--verde-bosque);
+}

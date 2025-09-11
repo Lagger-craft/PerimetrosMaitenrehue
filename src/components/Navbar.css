@@ -1,0 +1,52 @@
+/* Main navbar styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: top 0.5s;
+  background-color: var(--blanco-puro);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--gris-concreto);
+}
+
+.navbar--hidden {
+  top: -120px; /* Adjust this value based on your navbar's height */
+}
+
+/* Estilo para los nuevos enlaces de contacto */
+.navbar .contact-link {
+  color: var(--blanco-puro);
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.navbar .contact-link:hover {
+  color: var(--verde-bosque); /* Color de acento al pasar el mouse */
+}
+
+/* Customizing Bootstrap buttons for the new theme */
+
+/* "Ingresar" button */
+.navbar .btn-outline-light {
+  color: var(--verde-bosque);
+  border-color: var(--verde-bosque);
+}
+
+.navbar .btn-outline-light:hover {
+  color: var(--blanco-puro);
+  background-color: var(--verde-musgo-claro);
+  border-color: var(--verde-musgo-claro);
+}
+
+/* "Registrarse" button */
+.navbar .btn-light {
+  background-color: var(--verde-bosque);
+  color: var(--blanco-puro);
+  border-color: var(--verde-bosque);
+}
+
+.navbar .btn-light:hover {
+  background-color: var(--verde-musgo-claro);
+  color: var(--blanco-puro);
+  border-color: var(--verde-musgo-claro);
+}

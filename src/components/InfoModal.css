@@ -1,0 +1,60 @@
+/* Styling for the frosted glass modal */
+.modal-content {
+  background-color: var(--blanco-puro);
+  backdrop-filter: blur(15px); /* Frosted glass effect */
+  border: 1px solid var(--gris-concreto);
+  color: var(--gris-oscuro);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--gris-concreto);
+}
+
+/* Change close button color to be visible on dark background */
+.modal-header .btn-close {
+  filter: none;
+}
+
+/* Custom class for the checkmark icon */
+.icon-check {
+  color: var(--verde-bosque);
+}
+
+/* Links de contacto en el modal */
+.contact-link-modal {
+  color: var(--gris-oscuro);
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.contact-link-modal:hover {
+  color: var(--verde-bosque);
+}
+
+
+/* Button overrides for the new theme */
+
+/* "Contactar" button */
+.modal-footer .btn-primary {
+  background-color: var(--verde-bosque);
+  color: var(--blanco-puro);
+  border-color: var(--verde-bosque);
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: var(--verde-musgo-claro);
+  border-color: var(--verde-musgo-claro);
+}
+
+/* "Entendido" button */
+.modal-footer .btn-secondary {
+  background-color: transparent;
+  color: var(--verde-bosque);
+  border-color: var(--verde-bosque);
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: var(--verde-musgo-claro);
+  color: var(--blanco-puro);
+}

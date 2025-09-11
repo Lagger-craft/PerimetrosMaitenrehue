@@ -1,0 +1,22 @@
+.works-section {
+  background-color: var(--blanco-puro);
+  padding: 4rem 0;
+}
+
+.works-section h2 {
+  color: var(--gris-oscuro);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.works-section .figure-caption {
+  color: var(--gris-oscuro);
+  text-align: center;
+}
+
+.works-section .figure-img {
+  object-fit: cover;
+  height: 100%;
+  border-radius: 0.25rem; /* Add a slight border radius */
+  border: 1px solid var(--gris-concreto);
+}

@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# CercoVibrados del Sur - Aplicación Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es la aplicación web oficial de CercoVibrados del Sur, una fábrica familiar dedicada a la producción de cercos vibrados de alta calidad para el sur de Chile. La aplicación busca ofrecer una plataforma intuitiva y estética, destacando visualmente la solidez y modernidad de nuestros productos.
 
-## Available Scripts
+## Aspecto Visual y Diseño
 
-In the project directory, you can run:
+La interfaz de usuario ha sido diseñada con un enfoque en la claridad, la modernidad y la coherencia visual, utilizando una paleta de colores cuidadosamente seleccionada para transmitir confianza y profesionalismo.
 
-### `npm start`
+### Paleta de Colores
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+La aplicación se adhiere a la siguiente paleta de colores, donde cada tono cumple una función específica para guiar la mirada del usuario y reforzar la identidad de marca:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **Verde Bosque (`#2E7D32`):** Utilizado para botones principales y acentos fuertes, este color vibrante simboliza la naturaleza y la durabilidad, atrayendo la atención a las acciones clave.
+*   **Gris Concreto (`#BDBDBD`):** Predomina en fondos suaves, tarjetas y bordes, aportando una sensación de solidez y estabilidad, similar a la resistencia de nuestros productos.
+*   **Azul Lluvia (`#4FC3F7`):** Empleado en iconos y detalles que evocan elementos climáticos o informativos, este tono fresco añade un toque de dinamismo y modernidad.
+*   **Blanco Puro (`#FFFFFF`):** Constituye el fondo principal y el color de texto sobre fondos oscuros, garantizando legibilidad y una sensación de amplitud y limpieza.
+*   **Gris Oscuro (`#212121`):** Usado para títulos y texto principal, proporciona un contraste fuerte y una lectura cómoda, transmitiendo seriedad y profesionalismo.
+*   **Verde Musgo Claro (`#A5D6A7`):** Se aplica en estados de `hover` y fondos secundarios, ofreciendo una transición suave y un toque de frescura que complementa el verde principal.
 
-### `npm test`
+### Elementos Visuales Clave
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*   **Hero Section:** Presenta una imagen de fondo impactante (`cerco-190.jpeg`) con una superposición oscura para asegurar la legibilidad del texto principal. Los títulos y el eslogan utilizan el **Gris Oscuro** sobre este fondo, creando un contraste elegante.
+*   **Navbar:** Con un fondo transparente que se adapta al scroll, utiliza el **Blanco Puro** para los enlaces y botones, destacando sobre el contenido y cambiando a **Verde Bosque** en `hover` para indicar interactividad.
+*   **Galería de Cercos:** Las tarjetas de productos emplean el **Gris Concreto** para los bordes y fondos suaves, con títulos en **Gris Oscuro** y texto descriptivo en un tono más claro, facilitando la visualización de cada tipo de cerco.
+*   **Formulario de Login:** Diseñado con un fondo **Blanco Puro** y bordes en **Gris Concreto**, incorpora iconos de usuario y candado en **Gris Concreto** para una mayor intuición. Los botones de acción utilizan el **Verde Bosque** para un llamado a la acción claro.
 
-### `npm run build`
+## Características Funcionales
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*   **Galería de Cercos:** Explora diferentes tipos de cercos vibrados con imágenes y descripciones.
+*   **Sección de Trabajos:** Muestra ejemplos de proyectos realizados.
+*   **Información de Contacto:** Modal de contacto para consultas y solicitudes.
+*   **Navegación Dinámica:** Barra de navegación que se oculta al hacer scroll hacia abajo y reaparece al subir.
+*   **Autenticación de Usuarios:** Páginas de Login y Registro para futuras funcionalidades de usuario.
+*   **Diseño Responsivo:** Adaptado para verse bien en diferentes dispositivos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologías Utilizadas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*   **React:** Biblioteca de JavaScript para construir interfaces de usuario.
+*   **React Router DOM:** Para la navegación y el enrutamiento de la aplicación.
+*   **React Bootstrap:** Componentes de Bootstrap adaptados para React.
+*   **React Bootstrap Icons:** Librería de iconos.
+*   **Framer Motion:** Para animaciones fluidas.
+*   **CSS3:** Estilos personalizados.
 
-### `npm run eject`
+## Configuración e Instalación
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Para configurar y ejecutar el proyecto en tu máquina local, sigue estos pasos:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  **Clona el repositorio:**
+    ```bash
+    git clone https://github.com/Lagger-craft/PerimetrosMaitenrehue.git
+    ```
+2.  **Navega al directorio del proyecto:**
+    ```bash
+    cd PerimetrosMaitenrehue
+    ```
+3.  **Instala las dependencias:**
+    ```bash
+    npm install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Ejecutar la Aplicación
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Para iniciar la aplicación en modo de desarrollo:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Esto abrirá la aplicación en tu navegador en `http://localhost:3000` (o un puerto disponible).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Despliegue en GitHub Pages
 
-### Code Splitting
+La aplicación está configurada para ser desplegada en GitHub Pages. Asegúrate de que tu `package.json` tenga la `homepage` correcta y sigue estos pasos:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1.  **Asegúrate de que la `homepage` en `package.json` sea correcta:**
+    ```json
+    "homepage": "https://lagger-craft.github.io/PerimetrosMaitenrehue",
+    ```
+2.  **Ejecuta el comando de despliegue:**
+    ```bash
+    npm run deploy
+    ```
+    Este comando construirá la aplicación y la subirá a la rama `gh-pages` de tu repositorio.
 
-### Analyzing the Bundle Size
+3.  **Configura GitHub Pages en tu repositorio:**
+    *   Ve a tu repositorio en GitHub.
+    *   Haz clic en **Settings > Pages**.
+    *   Asegúrate de que la fuente esté configurada para desplegar desde la rama `gh-pages` y la carpeta `/ (root)`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Tu sitio estará disponible en la URL de tu `homepage` después de unos minutos.
 
-### Making a Progressive Web App
+## Contacto y Feedback
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para cualquier consulta o feedback, por favor, contacta a través de los medios disponibles en la aplicación o abre un issue en este repositorio.

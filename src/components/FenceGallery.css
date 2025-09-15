@@ -1,26 +1,38 @@
+
 .fence-gallery {
-  background-color: var(--blanco-puro);
+  background: linear-gradient(to bottom, #2F5132, #4F8A4D);
+  padding: 4rem 0;
 }
 
 .fence-gallery h2 {
-  color: var(--gris-oscuro);
+  color: #F8F9FA;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .fence-gallery .card {
-  background-color: var(--blanco-puro);
-  border: 1px solid var(--gris-concreto);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background: rgba(255, 255, 255, 0.62); /* Fondo semitransparente */
+  backdrop-filter: blur(6px); /* Efecto de desenfoque */
+  border: 1px solid rgba(47, 81, 50, 0.08); /* Borde fino y sutil */
+  border-radius: 10px; /* Esquinas redondeadas */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
 }
 
 .fence-gallery .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px) scale(1.02); /* Efecto de levantar */
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28); /* Sombra más definida al pasar el ratón */
+}
+
+.fence-gallery .card-img-top {
+  height: 200px; /* Altura fija para la imagen */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio */
 }
 
 .fence-gallery .card-title {
-  color: var(--gris-oscuro);
+  color: #2F5132; /* Verde de marca para títulos */
 }
 
 .fence-gallery .card-text {
-  color: var(--gris-oscuro);
+  color: #6B6B6B; /* Gris medio para descripciones */
 }

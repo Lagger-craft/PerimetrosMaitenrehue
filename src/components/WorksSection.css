@@ -1,22 +1,40 @@
+
 .works-section {
-  background-color: var(--blanco-puro);
+  background: linear-gradient(to bottom, #4F8A4D, #6CA96F);
   padding: 4rem 0;
 }
 
 .works-section h2 {
-  color: var(--gris-oscuro);
+  color: #F8F9FA;
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.works-section .figure-caption {
-  color: var(--gris-oscuro);
-  text-align: center;
+/* Applying card styles to the Figure element */
+.works-section .figure {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(47, 81, 50, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem; /* Add some padding */
+  margin-bottom: 1rem; /* Ensure consistent spacing */
+}
+
+.works-section .figure:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
 }
 
 .works-section .figure-img {
   object-fit: cover;
   height: 100%;
-  border-radius: 0.25rem; /* Add a slight border radius */
-  border: 1px solid var(--gris-concreto);
+  border-radius: 0.25rem; /* Keep a slight radius for the image itself */
+}
+
+.works-section .figure-caption {
+  color: #6B6B6B; /* Match the card text color */
+  text-align: center;
+  margin-top: 0.5rem;
 }

@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <div className="wrapper">
       <form action="">
-        <h1>Login</h1>
+        <h1>Iniciar Session</h1>
         <div className="input-box">
           <input type="text" placeholder="Usuario" required />
           <Person className="icon" />

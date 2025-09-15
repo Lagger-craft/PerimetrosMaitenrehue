@@ -38,7 +38,7 @@ const AppNavbar = () => {
       variant="dark"
     >
       <Container>
-        <Navbar.Brand href="#logo" className="d-flex align-items-center">
+        <Link to="/" className="navbar-brand d-flex align-items-center">
           <img
             src={logo}
             alt="Logo"
@@ -46,7 +46,7 @@ const AppNavbar = () => {
             height="100"
             className="me-2"
           />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex align-items-center">

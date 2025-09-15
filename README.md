@@ -69,27 +69,6 @@ npm start
 
 Esto abrirá la aplicación en tu navegador en `http://localhost:3000` (o un puerto disponible).
 
-## Despliegue en GitHub Pages
-
-La aplicación está configurada para ser desplegada en GitHub Pages. Asegúrate de que tu `package.json` tenga la `homepage` correcta y sigue estos pasos:
-
-1.  **Asegúrate de que la `homepage` en `package.json` sea correcta:**
-    ```json
-    "homepage": "https://lagger-craft.github.io/PerimetrosMaitenrehue",
-    ```
-2.  **Ejecuta el comando de despliegue:**
-    ```bash
-    npm run deploy
-    ```
-    Este comando construirá la aplicación y la subirá a la rama `gh-pages` de tu repositorio.
-
-3.  **Configura GitHub Pages en tu repositorio:**
-    *   Ve a tu repositorio en GitHub.
-    *   Haz clic en **Settings > Pages**.
-    *   Asegúrate de que la fuente esté configurada para desplegar desde la rama `gh-pages` y la carpeta `/ (root)`.
-
-Tu sitio estará disponible en la URL de tu `homepage` después de unos minutos.
-
 ## Contacto y Feedback
 
 Para cualquier consulta o feedback, por favor, contacta a través de los medios disponibles en la aplicación o abre un issue en este repositorio.

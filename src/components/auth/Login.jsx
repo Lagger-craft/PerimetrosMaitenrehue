@@ -21,7 +21,7 @@ const Login = () => {
             <input type="checkbox" />
             Recuérdame
           </label>
-          <a href="../../../">¿Olvidaste tu contraseña?</a>
+          <a href="../../../PerimetrosMaitenrehue">¿Olvidaste tu contraseña?</a>
         </div>
 
         <button type="submit">Ingresar</button>

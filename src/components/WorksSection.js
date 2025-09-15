@@ -1,17 +1,20 @@
-import React from 'react';
-import { Container, Row, Col, Figure } from 'react-bootstrap';
-import './WorksSection.css';
+import React from "react";
+import { Container, Row, Col, Figure } from "react-bootstrap";
+import "./WorksSection.css";
+import tb_term from "../assets/tb_terminado.jpg";
+import tb_term2 from "../assets/tb_terminado2.jpg";
 
 const workExamples = [
   {
     id: 1,
-    image: 'https://via.placeholder.com/600x400?text=Proyecto+1',
-    caption: 'Proyecto residencial en Puerto Varas: 50 metros lineales de cerco vibrado.',
+    image: tb_term,
+    caption:
+      "Proyecto residencial en Puerto Varas: 50 metros lineales de cerco vibrado.",
   },
   {
     id: 2,
-    image: 'https://via.placeholder.com/600x400?text=Proyecto+2',
-    caption: 'Cierre perimetral en Osorno: 80 metros lineales para parcela.',
+    image: tb_term2,
+    caption: "Cierre perimetral en Osorno: 80 metros lineales para parcela.",
   },
 ];
 
@@ -19,7 +22,9 @@ const WorksSection = () => {
   return (
     <section className="works-section py-5">
       <Container>
-        <h2 className="text-center mb-5 text-uppercase fw-semibold">Imágenes Trabajos Realizados</h2>
+        <h2 className="text-center mb-5 text-uppercase fw-semibold">
+          Imágenes Trabajos Realizados
+        </h2>
         <Row className="justify-content-center">
           {workExamples.map((work) => (
             <Col md={6} key={work.id} className="mb-4">

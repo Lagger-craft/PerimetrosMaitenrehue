@@ -3,6 +3,8 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import "./FenceGallery.css";
 import palmetasImage from "../assets/palmetas.jpeg"; // Importar la imagen
 import cerco_home from "../assets/Cerco-home.jpg";
+import cero_tb from "../assets/cerco_trabajo.jpg";
+import cerco_stck from "../assets/cerco_stock.jpg";
 
 const fenceTypes = [
   {
@@ -19,19 +21,19 @@ const fenceTypes = [
   },
   {
     id: 3,
-    image: "https://via.placeholder.com/300x200?text=Cerco+Tipo+3",
+    image: cero_tb,
     title: "Titulo",
     subtitle: "Estilo y funcionalidad",
   },
   {
     id: 4,
-    image: "https://via.placeholder.com/300x200?text=Cerco+Tipo+4",
+    image: cerco_stck,
     title: "Titulo",
     subtitle: "Para grandes superficies",
   },
   {
     id: 5,
-    image: "https://via.placeholder.com/300x200?text=Cerco+Tipo+5",
+    image: "",
     title: "Titulo",
     subtitle: "Diseño a tu medida",
   },

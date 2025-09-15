@@ -1,4 +1,3 @@
-
 /* Main navbar styling */
 .navbar {
   position: fixed;
@@ -29,7 +28,7 @@
 
 /* "Ingresar" button */
 .navbar .btn-outline-light {
-  color: var(--verde-bosque);
+  color: var(--blanco-puro);
   border-color: var(--verde-bosque);
 }
 

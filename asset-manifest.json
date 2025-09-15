@@ -1,19 +1,23 @@
 {
   "files": {
     "main.css": "/PerimetrosMaitenrehue/static/css/main.60c78dc0.css",
-    "main.js": "/PerimetrosMaitenrehue/static/js/main.780e0e86.js",
+    "main.js": "/PerimetrosMaitenrehue/static/js/main.e712f1be.js",
     "static/js/453.cd32a980.chunk.js": "/PerimetrosMaitenrehue/static/js/453.cd32a980.chunk.js",
     "static/media/mi-logo.png": "/PerimetrosMaitenrehue/static/media/mi-logo.901303dec2a648573274.png",
     "static/media/cerco-190.jpeg": "/PerimetrosMaitenrehue/static/media/cerco-190.47946f0de878a7301fa6.jpeg",
+    "static/media/tb_terminado.jpg": "/PerimetrosMaitenrehue/static/media/tb_terminado.be7c628bbd0db316ecfb.jpg",
+    "static/media/tb_terminado2.jpg": "/PerimetrosMaitenrehue/static/media/tb_terminado2.d420b5da78d8188b4480.jpg",
+    "static/media/cerco_trabajo.jpg": "/PerimetrosMaitenrehue/static/media/cerco_trabajo.b1dfdeb2d788f093217f.jpg",
     "static/media/Cerco-home.jpg": "/PerimetrosMaitenrehue/static/media/Cerco-home.0919461adb7b2819c779.jpg",
+    "static/media/cerco_stock.jpg": "/PerimetrosMaitenrehue/static/media/cerco_stock.856ad5b5b2dcd8ba47f8.jpg",
     "static/media/palmetas.jpeg": "/PerimetrosMaitenrehue/static/media/palmetas.169e17d56977001f02a6.jpeg",
     "index.html": "/PerimetrosMaitenrehue/index.html",
     "main.60c78dc0.css.map": "/PerimetrosMaitenrehue/static/css/main.60c78dc0.css.map",
-    "main.780e0e86.js.map": "/PerimetrosMaitenrehue/static/js/main.780e0e86.js.map",
+    "main.e712f1be.js.map": "/PerimetrosMaitenrehue/static/js/main.e712f1be.js.map",
     "453.cd32a980.chunk.js.map": "/PerimetrosMaitenrehue/static/js/453.cd32a980.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.60c78dc0.css",
-    "static/js/main.780e0e86.js"
+    "static/js/main.e712f1be.js"
   ]
 }

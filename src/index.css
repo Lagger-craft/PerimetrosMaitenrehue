@@ -2,12 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 :root {
-  --verde-bosque: #2E7D32;
-  --gris-concreto: #BDBDBD;
-  --azul-lluvia: #4FC3F7;
-  --blanco-puro: #FFFFFF;
-  --gris-oscuro: #212121;
-  --verde-musgo-claro: #A5D6A7;
+  /* Paleta Principal */
+  --azul-profundo: #1D3557;
+  --azul-medio: #274C77;
+  --azul-claro: #4A83A6;
+  
+  /* Colores de Tarjeta y Texto */
+  --base-clara-tarjeta: #F4F7FA;
+  --texto-titulo-oscuro: #1D3557;
+  --texto-descripcion: #6D8293;
+  --texto-blanco: #FFFFFF;
+
+  /* Acento y Hover */
+  --acento-calido: #B5533C;
 }
 
 html {
@@ -16,14 +23,32 @@ html {
 
 body {
   margin: 0;
-  padding: 1rem;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--gris-oscuro);
-  background-color: var(--blanco-puro);
+  
+  /* Fondo de degradado vertical */
+  background: linear-gradient(180deg, #1D3557 0%, #274C77 45%, #4A83A6 100%);
+  background-attachment: fixed; /* Fija el fondo para que no se desplace con el contenido */
+  
+  color: var(--texto-descripcion); /* Color de texto por defecto */
   min-height: 100%;
+  position: relative; /* Necesario para el pseudo-elemento de brillo */
 }
+
+/* Capa de brillo sutil */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(600px 400px at 10% 10%, rgba(255, 255, 255, 0.03), transparent 30%);
+  pointer-events: none; /* Asegura que no interfiera con los clics */
+  z-index: 0;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

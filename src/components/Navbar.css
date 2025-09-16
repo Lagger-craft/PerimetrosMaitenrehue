@@ -1,52 +1,47 @@
-/* Main navbar styling */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  transition: top 0.5s;
-  background-color: var(--blanco-puro);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--gris-concreto);
+  transition: top 0.5s, background-color 0.3s ease-in-out;
+  /* Efecto de "vidrio esmerilado" */
+  background-color: rgba(29, 53, 87, 0.5); /* Azul profundo semitransparente */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(74, 131, 166, 0.2); /* Borde sutil */
 }
 
 .navbar--hidden {
-  top: -120px; /* Adjust this value based on your navbar's height */
+  top: -120px;
 }
 
-/* Estilo para los nuevos enlaces de contacto */
+.navbar .navbar-brand,
+.navbar .nav-link,
 .navbar .contact-link {
-  color: var(--blanco-puro);
+  color: var(--texto-blanco) !important; /* Forzar color blanco */
   transition: color 0.3s ease;
-  font-size: 0.9rem;
 }
 
+.navbar .navbar-brand:hover,
+.navbar .nav-link:hover,
 .navbar .contact-link:hover {
-  color: var(--verde-bosque); /* Color de acento al pasar el mouse */
+  color: rgba(255, 255, 255, 0.8) !important; /* Blanco más tenue al pasar el ratón */
 }
 
-/* Customizing Bootstrap buttons for the new theme */
-
-/* "Ingresar" button */
+/* Botones de "Ingresar" y "Registrarse" */
 .navbar .btn-outline-light {
-  color: var(--blanco-puro);
-  border-color: var(--verde-bosque);
+  color: var(--texto-blanco);
+  border-color: var(--texto-blanco);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar .btn-outline-light:hover {
-  color: var(--blanco-puro);
-  background-color: var(--verde-musgo-claro);
-  border-color: var(--verde-musgo-claro);
+  background-color: var(--texto-blanco);
+  color: var(--azul-profundo);
 }
 
-/* "Registrarse" button */
 .navbar .btn-light {
-  background-color: var(--verde-bosque);
-  color: var(--blanco-puro);
-  border-color: var(--verde-bosque);
+  background-color: var(--texto-blanco);
+  color: var(--azul-profundo);
+  border-color: var(--texto-blanco);
+  transition: background-color 0.3s ease, filter 0.3s ease;
 }
 
 .navbar .btn-light:hover {
-  background-color: var(--verde-musgo-claro);
-  color: var(--blanco-puro);
-  border-color: var(--verde-musgo-claro);
+  filter: brightness(0.9);
 }

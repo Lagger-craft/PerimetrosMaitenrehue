@@ -1,38 +1,63 @@
 
 .fence-gallery {
-  background: linear-gradient(to bottom, #2F5132, #4F8A4D);
-  padding: 4rem 0;
+  padding: 5rem 0;
+  position: relative; /* Para contexto de z-index si es necesario */
+  background: transparent; /* El fondo ahora es global */
 }
 
 .fence-gallery h2 {
-  color: #F8F9FA;
+  color: var(--texto-blanco);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  font-weight: 700;
 }
 
 .fence-gallery .card {
-  background: rgba(255, 255, 255, 0.62); /* Fondo semitransparente */
-  backdrop-filter: blur(6px); /* Efecto de desenfoque */
-  border: 1px solid rgba(47, 81, 50, 0.08); /* Borde fino y sutil */
-  border-radius: 10px; /* Esquinas redondeadas */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); /* Sombra suave */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+  background: rgba(248, 250, 252, 0.96); /* Base clara con tinte azulado */
+  border-radius: 12px;
+  border: 1px solid rgba(23, 41, 60, 0.06);
+  box-shadow: 0 10px 30px rgba(10, 20, 34, 0.22);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden; /* Asegura que el contenido respete el border-radius */
 }
 
 .fence-gallery .card:hover {
-  transform: translateY(-6px) scale(1.02); /* Efecto de levantar */
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28); /* Sombra más definida al pasar el ratón */
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 56px rgba(10, 20, 34, 0.30);
 }
 
 .fence-gallery .card-img-top {
-  height: 200px; /* Altura fija para la imagen */
-  object-fit: cover; /* Asegura que la imagen cubra el espacio */
+  height: 220px;
+  object-fit: cover;
+  filter: saturate(1.04); /* Da más vida a la imagen */
 }
 
 .fence-gallery .card-title {
-  color: #2F5132; /* Verde de marca para títulos */
+  color: var(--texto-titulo-oscuro); /* Azul profundo para títulos */
+  font-weight: 600;
 }
 
 .fence-gallery .card-text {
-  color: #6B6B6B; /* Gris medio para descripciones */
+  color: var(--texto-descripcion); /* Gris azulado para descripciones */
 }
+
+.fence-gallery .btn-primary {
+  background-color: var(--azul-profundo);
+  border-color: var(--azul-profundo);
+  color: var(--texto-blanco);
+  transition: filter 0.2s ease, background-color 0.2s ease;
+}
+
+.fence-gallery .btn-primary:hover {
+  filter: brightness(1.08);
+  background-color: var(--azul-profundo); /* Mantiene el color de fondo */
+  border-color: var(--azul-profundo);
+}
+
+/* Alternativa de hover con acento cálido */
+/* 
+.fence-gallery .btn-primary:hover {
+  background-color: var(--acento-calido);
+  border-color: var(--acento-calido);
+}
+*/

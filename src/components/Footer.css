@@ -1,28 +1,31 @@
 
 .footer {
-  background: #6CA96F; /* Tono más claro y sólido */
+  background: var(--azul-profundo); /* Fondo oscuro y sólido */
   padding: 4rem 0;
+  border-top: 1px solid rgba(74, 131, 166, 0.2);
 }
 
 .footer h5 {
-  color: #1E3922; /* Texto oscuro para contraste */
+  color: var(--texto-blanco);
   font-weight: 700;
 }
 
 .footer p,
-.footer li {
-  color: #2F5132;
+.footer li,
+.footer a {
+  color: rgba(244, 247, 250, 0.8); /* Blanco con ligera transparencia */
 }
 
 .footer hr {
-  border-top-color: #4F8A4D;
+  border-top-color: var(--azul-claro);
+  opacity: 0.2;
 }
 
 .footer-contact-nav .nav-link {
-  color: #2F5132;
+  color: rgba(244, 247, 250, 0.8);
   transition: color 0.3s ease;
 }
 
 .footer-contact-nav .nav-link:hover {
-  color: #1E3922;
+  color: var(--texto-blanco);
 }

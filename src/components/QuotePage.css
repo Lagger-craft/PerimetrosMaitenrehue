@@ -1,0 +1,42 @@
+.quote-page-section {
+  padding: 6rem 0;
+  background: transparent; /* El fondo es el degradado global */
+  min-height: 100vh;
+}
+
+.quote-card {
+  background-color: rgba(249, 250, 247, 0.95); /* Blanco ahuesado casi opaco */
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(30, 61, 47, 0.2);
+  padding: 1rem;
+}
+
+.quote-card .card-body {
+  padding: 2rem;
+}
+
+.quote-card h2 {
+  color: #1E3D2F; /* Verde bosque profundo */
+  font-weight: 700;
+}
+
+.quote-card .form-label {
+  color: #1E3D2F; /* Verde bosque profundo */
+  font-weight: 600;
+}
+
+.quote-card .btn-primary {
+  background-color: #1E3D2F;
+  border-color: #1E3D2F;
+  color: #FFFFFF;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: filter 0.2s ease;
+}
+
+.quote-card .btn-primary:hover {
+  filter: brightness(1.15);
+}

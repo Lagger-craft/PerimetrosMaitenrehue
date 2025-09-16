@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Modal, Button, Image } from 'react-bootstrap';
 import './FenceDetailModal.css';
 
@@ -27,7 +28,7 @@ const FenceDetailModal = ({ show, handleClose, fence }) => {
         <Button variant="secondary" onClick={handleClose}>
           Cerrar
         </Button>
-        <Button variant="primary" href="#contact">
+        <Button as={Link} to="/cotizar" variant="primary" onClick={handleClose}>
           Cotizar este cerco
         </Button>
       </Modal.Footer>

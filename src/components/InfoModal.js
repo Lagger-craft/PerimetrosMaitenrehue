@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Modal, Button, Nav } from "react-bootstrap";
 import { CheckCircleFill, Telephone, Facebook } from "react-bootstrap-icons";
 import "./InfoModal.css"; // Import custom modal styles
@@ -57,7 +58,7 @@ const InfoModal = ({ show, handleClose }) => {
         </Nav>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={handleClose}>
+        <Button as={Link} to="/cotizar" variant="primary" onClick={handleClose}>
           Contactar
         </Button>
         <Button variant="secondary" onClick={handleClose}>

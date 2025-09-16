@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import InfoModal from "./components/InfoModal";
 import Login from "./components/auth/Login.jsx";
 import Register from "./components/auth/Register.jsx";
+import QuotePage from "./components/QuotePage"; // Importar la nueva página
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -33,6 +34,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/cotizar" element={<QuotePage />} /> {/* Añadir la nueva ruta */}
       </Routes>
     </div>
   );

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PerimetrosMaitenrehue/static/css/main.4e384204.css",
-    "main.js": "/PerimetrosMaitenrehue/static/js/main.6d6c83e7.js",
+    "main.js": "/PerimetrosMaitenrehue/static/js/main.57520765.js",
     "static/js/453.cd32a980.chunk.js": "/PerimetrosMaitenrehue/static/js/453.cd32a980.chunk.js",
     "static/media/mi-logo.png": "/PerimetrosMaitenrehue/static/media/mi-logo.901303dec2a648573274.png",
     "static/media/cerco-190.jpeg": "/PerimetrosMaitenrehue/static/media/cerco-190.47946f0de878a7301fa6.jpeg",
@@ -14,11 +14,11 @@
     "static/media/pilaPlameta.jpeg": "/PerimetrosMaitenrehue/static/media/pilaPlameta.18d8d742df50a852482d.jpeg",
     "index.html": "/PerimetrosMaitenrehue/index.html",
     "main.4e384204.css.map": "/PerimetrosMaitenrehue/static/css/main.4e384204.css.map",
-    "main.6d6c83e7.js.map": "/PerimetrosMaitenrehue/static/js/main.6d6c83e7.js.map",
+    "main.57520765.js.map": "/PerimetrosMaitenrehue/static/js/main.57520765.js.map",
     "453.cd32a980.chunk.js.map": "/PerimetrosMaitenrehue/static/js/453.cd32a980.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4e384204.css",
-    "static/js/main.6d6c83e7.js"
+    "static/js/main.57520765.js"
   ]
 }

@@ -1,23 +1,28 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { Telephone, Facebook } from "react-bootstrap-icons";
-import "./Navbar.css"; // Para estilos personalizados
-import logo from "../assets/mi-logo.png";
+import React, { useState, useEffect, useCallback, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Telephone, Facebook, PersonCircle, PersonFillGear } from 'react-bootstrap-icons';
+import AuthContext from '../context/AuthContext'; // Importar el contexto
+import './Navbar.css';
+import logo from '../assets/mi-logo.png';
 
 const AppNavbar = () => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  
+  const { user, logout } = useContext(AuthContext); // Usar el contexto
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout(); // Llama a la función logout del contexto
+    navigate('/'); // Redirige a la página principal
+  };
 
   const controlNavbar = useCallback(() => {
     if (window.scrollY > lastScrollY && window.scrollY > 50) {
-      // Si se hace scroll hacia abajo y se ha pasado de 50px, se oculta.
       setShow(false);
-    } else if (window.scrollY < 15) {
-      // Si se hace scroll hacia arriba o se está cerca del tope, se muestra.
-      setShow(true);
     } else {
-      setShow(false);
+      setShow(true);
     }
     setLastScrollY(window.scrollY);
   }, [lastScrollY]);
@@ -28,6 +33,10 @@ const AppNavbar = () => {
       window.removeEventListener("scroll", controlNavbar);
     };
   }, [controlNavbar]);
+
+  const userIcon = user?.role === 'admin' 
+    ? <PersonFillGear size={24} /> 
+    : <PersonCircle size={24} />;
 
   return (
     <Navbar
@@ -66,12 +75,25 @@ const AppNavbar = () => {
               <Facebook className="me-2" />
               Facebook
             </Nav.Link>
-            <Link to="/login" className="btn btn-outline-light me-2">
-              Ingresar
-            </Link>
-            <Link to="/register" className="btn btn-light">
-              Registrarse
-            </Link>
+
+            {user ? (
+              <NavDropdown title={userIcon} id="basic-nav-dropdown" align="end">
+                <NavDropdown.ItemText>Conectado como: <strong>{user.username}</strong></NavDropdown.ItemText>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={handleLogout}>
+                  Cerrar Sesión
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-outline-light me-2">
+                  Ingresar
+                </Link>
+                <Link to="/register" className="btn btn-light">
+                  Registrarse
+                </Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

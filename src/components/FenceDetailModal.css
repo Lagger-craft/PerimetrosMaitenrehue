@@ -1,0 +1,65 @@
+.modal-content {
+  background-color: #F9FAF7; /* Blanco cálido ahuesado */
+  color: #222222; /* Texto principal casi negro */
+  border: none; /* Eliminamos el borde anterior */
+  border-radius: 12px; /* Mantenemos un radio suave */
+  box-shadow: 0 10px 30px rgba(30, 61, 47, 0.2); /* Sombra difusa gris-verde */
+}
+
+.modal-header {
+  border-bottom-color: rgba(30, 61, 47, 0.1);
+}
+
+.modal-header .modal-title {
+  color: #1E3D2F; /* Verde bosque profundo para títulos */
+  font-weight: 700;
+}
+
+.modal-footer {
+  border-top-color: rgba(30, 61, 47, 0.1);
+  background-color: transparent; /* Aseguramos que no haya otro color de fondo */
+}
+
+.modal-header .btn-close {
+  /* Ajustamos el botón de cierre para que sea visible sobre el fondo claro */
+  filter: none; 
+}
+
+.icon-check {
+  color: #3E6B4F; /* Verde musgo para iconos */
+}
+
+.contact-link-modal {
+  color: #1E3D2F;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.contact-link-modal:hover {
+  color: #3E6B4F;
+}
+
+/* Botón de acción principal (Contactar) */
+.modal-footer .btn-primary {
+  background-color: #1E3D2F; /* Verde bosque húmedo */
+  color: #FFFFFF; /* Texto blanco */
+  border-color: #1E3D2F;
+  transition: filter 0.2s ease;
+}
+
+.modal-footer .btn-primary:hover {
+  filter: brightness(1.15);
+}
+
+/* Botón secundario (Entendido) */
+.modal-footer .btn-secondary {
+  background-color: #E5E7EB; /* Gris claro */
+  color: #374151; /* Texto gris oscuro */
+  border-color: #E5E7EB;
+  transition: background-color 0.2s ease;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: #D1D5DB; /* Un gris ligeramente más oscuro al pasar el ratón */
+}

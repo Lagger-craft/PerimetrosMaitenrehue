@@ -9,7 +9,7 @@
   justify-content: center;
   overflow: hidden;
   /* El fondo es transparente para mostrar el degradado del body */
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 .hero-section::before {
@@ -20,7 +20,7 @@
   right: 0;
   bottom: 0;
   /* Superposición más sutil para no oscurecer tanto el fondo */
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 

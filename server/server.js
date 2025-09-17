@@ -16,6 +16,9 @@ const JWT_SECRET = 'your_super_secret_key_change_this_later'; // Cambia esto por
 app.use(cors());
 app.use(express.json());
 
+// Servir archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, '../build')));
+
 // --- Funciones Auxiliares ---
 const readUsers = async () => {
   try {
@@ -186,9 +189,9 @@ app.get('/api/quotes', authenticateToken, authorizeAdmin, async (req, res) => {
   }
 });
 
-
-app.get('/', (req, res) => {
-  res.send('Servidor del backend de Cercovibrados está funcionando!');
+// Cualquier otra ruta que no sea API, sirve el index.html del frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
 // Iniciar servidor

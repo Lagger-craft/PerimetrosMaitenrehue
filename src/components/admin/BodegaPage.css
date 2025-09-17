@@ -1,0 +1,13 @@
+.bodega-page-section {
+  min-height: 100vh;
+  padding-top: 120px; /* Ajuste para el navbar fijo */
+  background: transparent; /* Usa el fondo global */
+}
+
+.bodega-page-section h2 {
+  color: var(--texto-blanco);
+}
+
+.bodega-page-section p {
+  color: var(--texto-descripcion);
+}

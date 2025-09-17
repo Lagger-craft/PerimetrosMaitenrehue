@@ -80,24 +80,46 @@ const AppNavbar = memo(() => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex align-items-center">
-            <Nav.Link
-              href="tel:+56987761691"
-              className="d-flex align-items-center me-3 contact-link"
-            >
-              <Telephone className="me-2" />
-              +56 9 8776 1691
-            </Nav.Link>
-            <Nav.Link
-              href="https://www.facebook.com/empresafamiliarag.ltda/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-flex align-items-center me-3 contact-link"
-            >
-              <Facebook className="me-2" />
-              Facebook
-            </Nav.Link>
+            {!(user && user.role === 'admin') && (
+              <Nav.Link
+                href="tel:+56987761691"
+                className="d-flex align-items-center me-3 contact-link"
+              >
+                <Telephone className="me-2" />
+                +56 9 8776 1691
+              </Nav.Link>
+            )}
+            {!(user && user.role === 'admin') && (
+              <Nav.Link
+                href="https://www.facebook.com/empresafamiliarag.ltda/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-flex align-items-center me-3 contact-link"
+              >
+                <Facebook className="me-2" />
+                Facebook
+              </Nav.Link>
+            )}
 
-            {user ? (
+            {user && user.role === 'admin' ? (
+              <>
+                <Link to="/administracion/dashboard" className="btn btn-outline-light me-2">
+                  Cotizaciones
+                </Link>
+                <Link to="/administracion/bodega" className="btn btn-light me-3">
+                  Bodega
+                </Link>
+                <NavDropdown title={userIcon} id="basic-nav-dropdown" align="end">
+                  <NavDropdown.ItemText>
+                    Conectado como: <strong>{user.username}</strong>
+                  </NavDropdown.ItemText>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={handleLogout}>
+                    Cerrar Sesión
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : user ? (
               <NavDropdown title={userIcon} id="basic-nav-dropdown" align="end">
                 <NavDropdown.ItemText>
                   Conectado como: <strong>{user.username}</strong>
@@ -107,16 +129,7 @@ const AppNavbar = memo(() => {
                   Cerrar Sesión
                 </NavDropdown.Item>
               </NavDropdown>
-            ) : (
-              <>
-                <Link to="/login" className="btn btn-outline-light me-2">
-                  Ingresar
-                </Link>
-                <Link to="/register" className="btn btn-light">
-                  Registrarse
-                </Link>
-              </>
-            )}
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -12,6 +12,9 @@ import InfoModal from "./components/InfoModal";
 const Login = lazy(() => import("./components/auth/Login.jsx"));
 const Register = lazy(() => import("./components/auth/Register.jsx"));
 const QuotePage = lazy(() => import("./components/QuotePage"));
+const AdminLogin = lazy(() => import("./components/auth/AdminLogin.jsx"));
+const AdminDashboard = lazy(() => import("./components/admin/AdminDashboard.jsx"));
+const BodegaPage = lazy(() => import("./components/admin/BodegaPage.jsx")); // Nuevo
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -40,6 +43,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/cotizar" element={<QuotePage />} />
+            <Route path="/administracion" element={<AdminLogin />} />
+            <Route path="/administracion/dashboard" element={<AdminDashboard />} />
+            <Route path="/administracion/bodega" element={<BodegaPage />} /> {/* Nueva ruta */}
           </Routes>
         </Suspense>
       </div>

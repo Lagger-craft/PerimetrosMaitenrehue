@@ -41,9 +41,10 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('token', data.token);
     const decodedUser = parseJwt(data.token);
     setUser(decodedUser);
+    return decodedUser; // Devolver el usuario decodificado
   };
 
-  const logout = () => {
+  const logout = async () => {
     localStorage.removeItem('token');
     setUser(null);
   };

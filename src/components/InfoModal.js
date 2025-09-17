@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button, Nav } from "react-bootstrap";
 import { CheckCircleFill, Telephone, Facebook } from "react-bootstrap-icons";
-import "./InfoModal.css"; // Import custom modal styles
+import "./ModalCommon.css"; // Importar el CSS común para modales
 
 const InfoModal = ({ show, handleClose }) => {
   return (

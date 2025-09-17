@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button, Image } from 'react-bootstrap';
-import './FenceDetailModal.css';
+import './ModalCommon.css'; // Importar el CSS común para modales
 
 const FenceDetailModal = ({ show, handleClose, fence }) => {
   if (!fence) {

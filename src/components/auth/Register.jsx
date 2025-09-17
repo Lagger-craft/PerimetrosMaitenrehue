@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Person, Lock } from 'react-bootstrap-icons';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
-import './Register.css';
+import './AuthCommon.css'; // Importar el CSS común para autenticación
 
 const Register = () => {
   const [username, setUsername] = useState('');

@@ -1,25 +1,25 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { Person, Lock } from 'react-bootstrap-icons';
-import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
-import AuthContext from '../../context/AuthContext'; // Importar el contexto
-import './Login.css';
+import React, { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Person, Lock } from "react-bootstrap-icons";
+import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import AuthContext from "../../context/AuthContext"; // Importar el contexto
+import "./AuthCommon.css"; // Importar el CSS común para autenticación
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
   const { login } = useContext(AuthContext); // Usar el contexto
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
       await login(username, password); // Llamar a la función login del contexto
-      navigate('/'); // Redirigir al home
+      navigate("/"); // Redirigir al home
     } catch (err) {
       setError(err.message);
     }
@@ -34,7 +34,10 @@ const Login = () => {
               <h1 className="text-center mb-4">Iniciar Sesión</h1>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3 input-box" controlId="formBasicUsername">
+                <Form.Group
+                  className="mb-3 input-box"
+                  controlId="formBasicUsername"
+                >
                   <Form.Control
                     type="text"
                     placeholder="Usuario"
@@ -45,7 +48,10 @@ const Login = () => {
                   <Person className="icon" />
                 </Form.Group>
 
-                <Form.Group className="mb-3 input-box" controlId="formBasicPassword">
+                <Form.Group
+                  className="mb-3 input-box"
+                  controlId="formBasicPassword"
+                >
                   <Form.Control
                     type="password"
                     placeholder="Contraseña"
@@ -58,7 +64,7 @@ const Login = () => {
 
                 <div className="remember-forgot">
                   <Form.Check type="checkbox" label="Recuérdame" />
-                  <a href="#">¿Olvidaste tu contraseña?</a>
+                  <a href="WhatPassword">¿Olvidaste tu contraseña?</a>
                 </div>
 
                 <Button variant="primary" type="submit" className="w-100">
@@ -67,7 +73,8 @@ const Login = () => {
 
                 <div className="register-link mt-3 text-center">
                   <p>
-                    ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
+                    ¿No tienes una cuenta?{" "}
+                    <Link to="/register">Regístrate</Link>
                   </p>
                 </div>
               </Form>

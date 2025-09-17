@@ -1,32 +1,50 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Telephone, Facebook, PersonCircle, PersonFillGear } from 'react-bootstrap-icons';
-import AuthContext from '../context/AuthContext'; // Importar el contexto
-import './Navbar.css';
-import logo from '../assets/mi-logo.png';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+  memo,
+} from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import {
+  Telephone,
+  Facebook,
+  PersonCircle,
+  PersonFillGear,
+} from "react-bootstrap-icons";
+import AuthContext from "../context/AuthContext"; // Importar el contexto
+import "./Navbar.css";
+import logo from "../assets/mi-logo.png";
 
-const AppNavbar = () => {
+const AppNavbar = memo(() => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  
+
   const { user, logout } = useContext(AuthContext); // Usar el contexto
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout(); // Llama a la función logout del contexto
-    navigate('/'); // Redirige a la página principal
+    navigate("/"); // Redirige a la página principal
   };
 
   const controlNavbar = useCallback(() => {
-    if (window.scrollY > lastScrollY && window.scrollY > 50) {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < 20) {
+      // Arriba del todo, siempre mostrar
+      setShow(true);
+    } else if (currentScrollY > lastScrollY) {
+      // Bajando
       setShow(false);
     } else {
-      setShow(true);
+      // Subiendo
+      setShow(false);
     }
-    setLastScrollY(window.scrollY);
-  }, [lastScrollY]);
 
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY]);
   useEffect(() => {
     window.addEventListener("scroll", controlNavbar);
     return () => {
@@ -34,9 +52,12 @@ const AppNavbar = () => {
     };
   }, [controlNavbar]);
 
-  const userIcon = user?.role === 'admin' 
-    ? <PersonFillGear size={24} /> 
-    : <PersonCircle size={24} />;
+  const userIcon =
+    user?.role === "admin" ? (
+      <PersonFillGear size={24} />
+    ) : (
+      <PersonCircle size={24} />
+    );
 
   return (
     <Navbar
@@ -78,7 +99,9 @@ const AppNavbar = () => {
 
             {user ? (
               <NavDropdown title={userIcon} id="basic-nav-dropdown" align="end">
-                <NavDropdown.ItemText>Conectado como: <strong>{user.username}</strong></NavDropdown.ItemText>
+                <NavDropdown.ItemText>
+                  Conectado como: <strong>{user.username}</strong>
+                </NavDropdown.ItemText>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={handleLogout}>
                   Cerrar Sesión
@@ -99,6 +122,6 @@ const AppNavbar = () => {
       </Container>
     </Navbar>
   );
-};
+});
 
 export default AppNavbar;

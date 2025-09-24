@@ -65,3 +65,16 @@
 .fence-gallery .card-clickable {
   cursor: pointer;
 }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .fence-gallery {
+    padding: 3rem 0;
+  }
+
+  .fence-gallery h2 {
+    /* clamp(min, preferred, max) */
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 2.5rem;
+  }
+}

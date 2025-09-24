@@ -1,5 +1,5 @@
 import React from "react";
-import cercoImage from "../assets/cerco-190.jpeg";
+import cercoImage from "../assets/cerco-190.webp";
 import { Container, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import "./HeroSection.css";

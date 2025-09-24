@@ -87,3 +87,19 @@
 .slide-indicator.active {
   background-color: var(--texto-blanco);
 }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .hero-section p.lead {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+  }
+
+  .hero-section .btn-hero {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+}

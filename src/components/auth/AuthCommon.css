@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding-top: 120px; /* Espacio para el Navbar */
-  background: url("../../assets/cerco-190.jpeg") no-repeat;
+  background: url("../../assets/cerco-190.webp") no-repeat;
   background-size: cover;
   background-position: center;
 }

@@ -4,8 +4,8 @@ import "./WorksSection.css";
 import WorkCard from "./WorkCard"; // Importar el nuevo componente WorkCard
 
 // Importaciones de imágenes
-import tbTerminadoImage from "../assets/tb_terminado.jpg";
-import tbTerminado2Image from "../assets/tb_terminado2.jpg";
+import tbTerminadoImage from "../assets/tb_terminado.webp";
+import tbTerminado2Image from "../assets/tb_terminado2.webp";
 
 const workExamples = [
   {
@@ -27,7 +27,7 @@ const WorksSection = () => {
     <section className="works-section py-5">
       <Container>
         <h2 className="text-center mb-5 text-uppercase fw-semibold">
-          Imágenes Trabajos Realizados
+          Ultimos Trabajos Realizados
         </h2>
         <Row className="justify-content-center">
           {workExamples.map((work) => (

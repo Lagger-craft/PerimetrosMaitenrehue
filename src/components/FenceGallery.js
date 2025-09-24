@@ -5,11 +5,11 @@ import FenceDetailModal from "./FenceDetailModal"; // Importar el nuevo modal
 import FenceCard from "./FenceCard"; // Importar el nuevo componente FenceCard
 
 // Importaciones de imágenes
-import palmetasImage from "../assets/palmetas.jpeg";
-import cercoHomeImage from "../assets/Cerco-home.jpg";
-import cercoTrabajoImage from "../assets/cerco_trabajo.jpg";
-import cercoStockImage from "../assets/cerco_stock.jpg";
-import pilaPlametaImage from "../assets/pilaPlameta.jpeg";
+import palmetasImage from "../assets/palmetas.webp";
+import cercoHomeImage from "../assets/Cerco-home.webp";
+import cercoTrabajoImage from "../assets/cerco_trabajo.webp";
+import cercoStockImage from "../assets/cerco_stock.webp";
+import pilaPlametaImage from "../assets/pilaPlameta.webp";
 
 const fenceTypes = [
   {
@@ -73,7 +73,7 @@ const FenceGallery = () => {
       <section className="fence-gallery py-5">
         <Container>
           <h2 className="text-center mb-5 text-uppercase fw-semibold">
-            Galería de Tipos de Cercos
+            Tipos de Cercos – Diseños y Materiales
           </h2>
           <Row
             xs={1}

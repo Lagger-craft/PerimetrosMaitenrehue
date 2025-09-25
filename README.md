@@ -1,74 +1,136 @@
 # CercoVibrados del Sur - Aplicación Web
 
-Esta es la aplicación web oficial de CercoVibrados del Sur, una fábrica familiar dedicada a la producción de cercos vibrados de alta calidad para el sur de Chile. La aplicación busca ofrecer una plataforma intuitiva y estética, destacando visualmente la solidez y modernidad de nuestros productos.
+![Logo de la empresa](src/assets/mi-logo.png)
 
-## Aspecto Visual y Diseño
+Aplicación web oficial de **CercoVibrados del Sur**, una fábrica familiar dedicada a la producción de cercos vibrados de alta calidad en el sur de Chile. La plataforma ofrece una experiencia de usuario intuitiva y moderna, permitiendo a los clientes cotizar productos y a los administradores gestionar el inventario de manera eficiente.
 
-La interfaz de usuario ha sido diseñada con un enfoque en la claridad, la modernidad y la coherencia visual, utilizando una paleta de colores cuidadosamente seleccionada para transmitir confianza y profesionalismo.
+## ✨ Features
 
-### Paleta de Colores
+- **Catálogo de Productos y Cotizaciones:** Los usuarios pueden explorar los productos y solicitar cotizaciones personalizadas a través de un formulario interactivo.
+- **Panel de Administración Seguro:** Interfaz de administración protegida para la gestión de cotizaciones e inventario.
+- **Gestión de Inventario (Bodega):** Los administradores pueden agregar, editar, eliminar y buscar productos, con un sistema de badges de colores para visualizar el stock.
+- **Seguridad Robusta:**
+    - **Autenticación con JWT:** Uso de JSON Web Tokens para proteger las rutas del panel de administración.
+    - **Hashing de Contraseñas:** Las contraseñas se almacenan de forma segura utilizando `bcrypt`.
+    - **Middleware de Seguridad:** Implementación de `helmet` para proteger la aplicación de vulnerabilidades conocidas y `express-rate-limit` para prevenir ataques de fuerza bruta.
+- **Optimización y Rendimiento:**
+    - **Imágenes Optimizadas:** Uso de imágenes en formato `.webp` para una carga más rápida.
+    - **Componentes Virtualizados (a futuro):** Se puede implementar para mejorar el rendimiento en listas largas de productos o cotizaciones.
+- **Diseño Responsivo:** La interfaz está diseñada para ser completamente funcional y estéticamente agradable tanto en dispositivos de escritorio como móviles.
 
-La aplicación se adhiere a la siguiente paleta de colores, donde cada tono cumple una función específica para guiar la mirada del usuario y reforzar la identidad de marca:
+## 📄 Páginas
 
-*   **Verde Bosque (`#2E7D32`):** Utilizado para botones principales y acentos fuertes, este color vibrante simboliza la naturaleza y la durabilidad, atrayendo la atención a las acciones clave.
-*   **Gris Concreto (`#BDBDBD`):** Predomina en fondos suaves, tarjetas y bordes, aportando una sensación de solidez y estabilidad, similar a la resistencia de nuestros productos.
-*   **Azul Lluvia (`#4FC3F7`):** Empleado en iconos y detalles que evocan elementos climáticos o informativos, este tono fresco añade un toque de dinamismo y modernidad.
-*   **Blanco Puro (`#FFFFFF`):** Constituye el fondo principal y el color de texto sobre fondos oscuros, garantizando legibilidad y una sensación de amplitud y limpieza.
-*   **Gris Oscuro (`#212121`):** Usado para títulos y texto principal, proporciona un contraste fuerte y una lectura cómoda, transmitiendo seriedad y profesionalismo.
-*   **Verde Musgo Claro (`#A5D6A7`):** Se aplica en estados de `hover` y fondos secundarios, ofreciendo una transición suave y un toque de frescura que complementa el verde principal.
+### Página Principal (Pública)
 
-### Elementos Visuales Clave
+- **Inicio:** Una sección de bienvenida con una imagen destacada.
+- **Galería de Productos:** Muestra los diferentes tipos de cercos y trabajos realizados.
+- **Cotización:** Un formulario donde los clientes pueden solicitar cotizaciones personalizadas, con una imagen de referencia que cambia dinámicamente según la altura del cerco seleccionada.
 
-*   **Hero Section:** Presenta una imagen de fondo impactante (`cerco-190.jpeg`) con una superposición oscura para asegurar la legibilidad del texto principal. Los títulos y el eslogan utilizan el **Gris Oscuro** sobre este fondo, creando un contraste elegante.
-*   **Navbar:** Con un fondo transparente que se adapta al scroll, utiliza el **Blanco Puro** para los enlaces y botones, destacando sobre el contenido y cambiando a **Verde Bosque** en `hover` para indicar interactividad.
-*   **Galería de Cercos:** Las tarjetas de productos emplean el **Gris Concreto** para los bordes y fondos suaves, con títulos en **Gris Oscuro** y texto descriptivo en un tono más claro, facilitando la visualización de cada tipo de cerco.
-*   **Formulario de Login:** Diseñado con un fondo **Blanco Puro** y bordes en **Gris Concreto**, incorpora iconos de usuario y candado en **Gris Concreto** para una mayor intuición. Los botones de acción utilizan el **Verde Bosque** para un llamado a la acción claro.
+### Panel de Administración (Privado)
 
-## Características Funcionales
+- **Login:** Formulario de acceso seguro para administradores.
+- **Dashboard de Cotizaciones:** Visualización de todas las cotizaciones enviadas por los clientes.
+- **Gestión de Bodega:** Una interfaz moderna e intuitiva para la administración del inventario de productos.
 
-*   **Galería de Cercos:** Explora diferentes tipos de cercos vibrados con imágenes y descripciones.
-*   **Sección de Trabajos:** Muestra ejemplos de proyectos realizados.
-*   **Información de Contacto:** Modal de contacto para consultas y solicitudes.
-*   **Navegación Dinámica:** Barra de navegación que se oculta al hacer scroll hacia abajo y reaparece al subir.
-*   **Autenticación de Usuarios:** Páginas de Login y Registro para futuras funcionalidades de usuario.
-*   **Diseño Responsivo:** Adaptado para verse bien en diferentes dispositivos.
+## 🛠️ Tecnologías Utilizadas
 
-## Tecnologías Utilizadas
+### Frontend
 
-*   **React:** Biblioteca de JavaScript para construir interfaces de usuario.
-*   **React Router DOM:** Para la navegación y el enrutamiento de la aplicación.
-*   **React Bootstrap:** Componentes de Bootstrap adaptados para React.
-*   **React Bootstrap Icons:** Librería de iconos.
-*   **Framer Motion:** Para animaciones fluidas.
-*   **CSS3:** Estilos personalizados.
+- **React:** Biblioteca de JavaScript para construir la interfaz de usuario.
+- **React Bootstrap:** Componentes de UI pre-construidos y responsivos.
+- **React Router DOM:** Para la navegación y el enrutamiento del lado del cliente.
+- **React Bootstrap Icons:** Colección de iconos SVG.
+- **Framer Motion:** Para animaciones fluidas y transiciones.
 
-## Configuración e Instalación
+### Backend (Server)
 
-Para configurar y ejecutar el proyecto en tu máquina local, sigue estos pasos:
+- **Node.js & Express:** Para construir el servidor y la API REST.
+- **JSON Web Token (JWT):** Para la autenticación y autorización.
+- **bcrypt:** Para el hashing seguro de contraseñas.
+- **Helmet:** Middleware de seguridad para Express.
+- **Express Rate Limit:** Para limitar las peticiones repetidas a la API.
+- **CORS:** Para habilitar el acceso controlado a recursos desde diferentes dominios.
 
-1.  **Clona el repositorio:**
+## 🚀 Getting Started
+
+Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local.
+
+### Prerrequisitos
+
+- [Node.js](https://nodejs.org/) (versión 14 o superior)
+- [npm](https://www.npmjs.com/)
+
+### Instalación
+
+1.  **Clona el repositorio desde GitHub:**
     ```bash
     git clone https://github.com/Lagger-craft/PerimetrosMaitenrehue.git
     ```
+
 2.  **Navega al directorio del proyecto:**
     ```bash
     cd PerimetrosMaitenrehue
     ```
-3.  **Instala las dependencias:**
+
+3.  **Instala las dependencias del Frontend:**
     ```bash
     npm install
     ```
 
-## Ejecutar la Aplicación
+4.  **Instala las dependencias del Backend:**
+    ```bash
+    cd server
+    npm install
+    cd ..
+    ```
 
-Para iniciar la aplicación en modo de desarrollo:
+### Ejecución
 
-```bash
-npm start
+La aplicación consta de dos partes: el cliente (React) y el servidor (Express). Debes ejecutar ambos para que la aplicación funcione correctamente.
+
+1.  **Inicia el servidor backend:**
+    Desde el directorio raíz del proyecto, ejecuta:
+    ```bash
+    npm run start-server
+    ```
+    El servidor se iniciará en `http://localhost:5000`.
+
+2.  **Inicia el cliente frontend:**
+    En una nueva terminal, desde el directorio raíz del proyecto, ejecuta:
+    ```bash
+    npm start
+    ```
+    La aplicación se abrirá en tu navegador en `http://localhost:3000`.
+
+## 📁 Estructura del Proyecto
+
+```
+cercovibrados-web/
+├── server/               # Backend (Express)
+│   ├── node_modules/
+│   ├── package.json
+│   └── server.js         # Lógica del servidor
+├── src/                  # Frontend (React)
+│   ├── assets/           # Imágenes y otros recursos
+│   ├── components/       # Componentes de React
+│   │   ├── admin/        # Componentes del panel de administración
+│   │   └── auth/         # Componentes de autenticación
+│   ├── context/          # Contexto de React (ej. AuthContext)
+│   ├── App.js            # Componente principal y enrutador
+│   └── index.js          # Punto de entrada de la aplicación
+├── package.json          # Dependencias y scripts del frontend
+└── README.md             # Este archivo
 ```
 
-Esto abrirá la aplicación en tu navegador en `http://localhost:3000` (o un puerto disponible).
+## 🤝 Contribuciones
 
-## Contacto y Feedback
+Las contribuciones son bienvenidas. Si deseas mejorar el proyecto, por favor sigue estos pasos:
 
-Para cualquier consulta o feedback, por favor, contacta a través de los medios disponibles en la aplicación o abre un issue en este repositorio.
+1.  Haz un Fork del repositorio.
+2.  Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3.  Realiza tus cambios y haz commit (`git commit -m 'Agrega nueva funcionalidad'`).
+4.  Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
+5.  Abre un Pull Request.
+
+---
+*Este README fue generado y actualizado para proporcionar una guía completa y fácil de entender para futuros desarrolladores.*

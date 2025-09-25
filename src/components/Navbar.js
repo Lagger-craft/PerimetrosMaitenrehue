@@ -1,12 +1,6 @@
-import React, {
-  useState,
-  useEffect,
-  useCallback,
-  useContext,
-  memo,
-} from "react";
+import { useState, useEffect, useCallback, useContext, memo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import {
   Telephone,
   Facebook,
@@ -80,36 +74,48 @@ const AppNavbar = memo(() => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex align-items-center">
-            {!(user && user.role === 'admin') && (
-              <Nav.Link
+            {!(user && user.role === "admin") && (
+              <Button
                 href="tel:+56987761691"
-                className="d-flex align-items-center me-3 contact-link"
+                variant="outline-light"
+                className="d-flex align-items-center me-3"
               >
                 <Telephone className="me-2" />
                 +56 9 8776 1691
-              </Nav.Link>
+              </Button>
             )}
-            {!(user && user.role === 'admin') && (
-              <Nav.Link
+            {!(user && user.role === "admin") && (
+              <Button
                 href="https://www.facebook.com/empresafamiliarag.ltda/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="d-flex align-items-center me-3 contact-link"
+                variant="outline-light"
+                className="d-flex align-items-center me-3"
               >
                 <Facebook className="me-2" />
                 Facebook
-              </Nav.Link>
+              </Button>
             )}
 
-            {user && user.role === 'admin' ? (
+            {user && user.role === "admin" ? (
               <>
-                <Link to="/administracion/dashboard" className="btn btn-outline-light me-2">
+                <Link
+                  to="/administracion/dashboard"
+                  className="btn btn-outline-light me-2"
+                >
                   Cotizaciones
                 </Link>
-                <Link to="/administracion/bodega" className="btn btn-light me-3">
+                <Link
+                  to="/administracion/bodega"
+                  className="btn btn-light me-3"
+                >
                   Bodega
                 </Link>
-                <NavDropdown title={userIcon} id="basic-nav-dropdown" align="end">
+                <NavDropdown
+                  title={userIcon}
+                  id="basic-nav-dropdown"
+                  align="end"
+                >
                   <NavDropdown.ItemText>
                     Conectado como: <strong>{user.username}</strong>
                   </NavDropdown.ItemText>

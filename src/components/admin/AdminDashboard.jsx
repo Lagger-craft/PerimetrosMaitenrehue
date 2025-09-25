@@ -85,7 +85,7 @@ const AdminDashboard = () => {
   }
 
   return (
-    <section className="admin-dashboard-section py-5">
+    <section className="admin-dashboard-section">
       <Container>
         <h2 className="text-center mb-5 text-uppercase fw-semibold text-white">
           Panel de Administración - Cotizaciones

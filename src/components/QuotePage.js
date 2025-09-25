@@ -1,18 +1,29 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Row, Col, Card, Alert } from 'react-bootstrap';
-import './QuotePage.css';
+import React, { useState } from "react";
+import {
+  Container,
+  Form,
+  Button,
+  Row,
+  Col,
+  Card,
+  Alert,
+} from "react-bootstrap";
+import "./QuotePage.css";
+import cerco150 from '../assets/cerco_stock.webp';
+import cerco190 from '../assets/cerco-190.webp';
+import cerco220 from '../assets/Cerco-home.webp';
 
 const QuotePage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    rut: '',
-    phone: '',
-    address: '',
-    email: '',
-    fenceHeight: '1.90m',
-    fenceType: 'Cerco Vibrado Estándar', // Nuevo campo
-    linearMeters: '',
-    message: '',
+    name: "",
+    rut: "",
+    phone: "",
+    address: "",
+    email: "",
+    fenceHeight: "1.50m",
+    fenceType: "Cerco Vibrado Estándar", // Nuevo campo
+    linearMeters: "",
+    message: "",
   });
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
@@ -20,20 +31,20 @@ const QuotePage = () => {
 
   const formatRut = (value) => {
     // Limpiar el RUT de caracteres no numéricos y puntos
-    let cleaned = value.replace(/[^0-9kK]/g, '');
+    let cleaned = value.replace(/[^0-9kK]/g, "");
 
     // Convertir a mayúscula la K si existe
     cleaned = cleaned.toUpperCase();
 
     // Aplicar formato: XX.XXX.XXX-X
-    let formatted = '';
+    let formatted = "";
     if (cleaned.length > 1) {
       formatted = cleaned.slice(-1);
       cleaned = cleaned.slice(0, -1);
     }
 
     while (cleaned.length > 3) {
-      formatted = '.' + cleaned.slice(-3) + formatted;
+      formatted = "." + cleaned.slice(-3) + formatted;
       cleaned = cleaned.slice(0, -3);
     }
 
@@ -41,13 +52,13 @@ const QuotePage = () => {
       formatted = cleaned + formatted;
     }
 
-    if (formatted.length > 0 && value.includes('-')) {
-      formatted = formatted.replace(/\.(?=[0-9]{3}-)/g, ''); // Evitar doble punto antes del guion
-      formatted = formatted.replace(/-(?=[0-9]{3})/g, ''); // Evitar doble guion
+    if (formatted.length > 0 && value.includes("-")) {
+      formatted = formatted.replace(/\.(?=[0-9]{3}-)/g, ""); // Evitar doble punto antes del guion
+      formatted = formatted.replace(/-(?=[0-9]{3})/g, ""); // Evitar doble guion
     }
 
-    if (formatted.length > 0 && !formatted.includes('-')) {
-      formatted = formatted.slice(0, -1) + '-' + formatted.slice(-1);
+    if (formatted.length > 0 && !formatted.includes("-")) {
+      formatted = formatted.slice(0, -1) + "-" + formatted.slice(-1);
     }
 
     return formatted;
@@ -57,15 +68,18 @@ const QuotePage = () => {
     const { name, value } = e.target;
     let newValue = value;
 
-    if (name === 'rut') {
+    if (name === "rut") {
       newValue = formatRut(value);
     }
 
-    setFormData(prevState => {
+    setFormData((prevState) => {
       const newState = { ...prevState, [name]: newValue };
       // Actualizar fenceType basado en fenceHeight
-      if (name === 'fenceHeight') {
-        newState.fenceType = value === 'Otra' ? 'Cerco Vibrado Personalizado' : `Cerco Vibrado ${value}`;
+      if (name === "fenceHeight") {
+        newState.fenceType =
+          value === "Otra"
+            ? "Cerco Vibrado Personalizado"
+            : `Cerco Vibrado ${value}`;
       }
       return newState;
     });
@@ -78,7 +92,7 @@ const QuotePage = () => {
 
     if (form.checkValidity() === false) {
       setValidated(true);
-      setError('Por favor, completa todos los campos obligatorios.');
+      setError("Por favor, completa todos los campos obligatorios.");
       return;
     }
 
@@ -87,10 +101,10 @@ const QuotePage = () => {
     setValidated(false); // Reset validation state on successful attempt
 
     try {
-      const response = await fetch('http://localhost:5000/api/quotes', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/quotes", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -98,25 +112,39 @@ const QuotePage = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Error al enviar la cotización');
+        throw new Error(data.message || "Error al enviar la cotización");
       }
 
-      setMessage('¡Cotización enviada exitosamente! Nos pondremos en contacto contigo pronto.');
+      setMessage(
+        "¡Cotización enviada exitosamente! Nos pondremos en contacto contigo pronto.",
+      );
       setFormData({
-        name: '',
-        rut: '',
-        phone: '',
-        address: '',
-        email: '',
-        fenceHeight: '1.90m',
-        fenceType: 'Cerco Vibrado Estándar', // Resetear también
-        linearMeters: '',
-        message: '',
+        name: "",
+        rut: "",
+        phone: "",
+        address: "",
+        email: "",
+        fenceHeight: "1.50m",
+        fenceType: "Cerco Vibrado Estándar", // Resetear también
+        linearMeters: "",
+        message: "",
       });
       setValidated(false); // Reset validation state on successful submission
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
-    } catch (err) {
-      setError(err.message);
+  const getImageForHeight = (height) => {
+    switch (height) {
+      case '1.50m':
+        return cerco150;
+      case '1.90m':
+        return cerco190;
+      case '2.20m':
+        return cerco220;
+      default:
+        return cerco150; // Default image
     }
   };
 
@@ -179,9 +207,9 @@ const QuotePage = () => {
                         <Form.Label>Altura del Cerco</Form.Label>
                         <Form.Select name="fenceHeight" value={formData.fenceHeight} onChange={handleChange} required>
                           <option value="">Selecciona una altura</option>
+                          <option>1.50m</option>
                           <option>1.90m</option>
-                          <option>2.10m</option>
-                          <option>2.40m</option>
+                          <option>2.20m</option>
                           <option>Otra</option>
                         </Form.Select>
                         <Form.Control.Feedback type="invalid">Por favor, selecciona la altura del cerco.</Form.Control.Feedback>
@@ -198,7 +226,8 @@ const QuotePage = () => {
 
                   <Form.Group className="mb-3" controlId="formMessage">
                     <Form.Label>Mensaje Adicional</Form.Label>
-                    <Form.Control as="textarea" name="message" rows={4} value={formData.message} onChange={handleChange} placeholder="Indícanos cualquier detalle importante para tu proyecto." />
+                    <Form.Control as="textarea" name="message" rows={4} value={formData.message} onChange={handleChange} placeholder="Indícanos cualquier detalle importante para tu proyecto."
+                    />
                   </Form.Group>
 
                   <div className="d-grid">
@@ -211,9 +240,16 @@ const QuotePage = () => {
             </Card>
           </Col>
         </Row>
+        <Row className="justify-content-center mt-5">
+          <Col md={8}>
+            <img src={getImageForHeight(formData.fenceHeight)} alt="Cerco de referencia" className="img-fluid rounded shadow-lg" />
+          </Col>
+        </Row>
       </Container>
     </section>
   );
+
 };
 
 export default QuotePage;
+

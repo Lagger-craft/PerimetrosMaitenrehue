@@ -1,12 +1,11 @@
 .admin-dashboard-section {
   min-height: 100vh;
-  padding-top: 100px; /* Ajuste para el navbar fijo */
+  padding: 8rem 0;
   background: transparent; /* Usa el fondo global */
 }
 
 .admin-dashboard-section h2 {
   color: var(--texto-blanco);
-  padding-top: 100px;
 }
 
 .quote-admin-card {

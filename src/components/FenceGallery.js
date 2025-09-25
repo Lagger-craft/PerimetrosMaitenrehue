@@ -8,8 +8,8 @@ import FenceCard from "./FenceCard"; // Importar el nuevo componente FenceCard
 import palmetasImage from "../assets/palmetas.webp";
 import cercoHomeImage from "../assets/Cerco-home.webp";
 import cercoTrabajoImage from "../assets/cerco_trabajo.webp";
-import cercoStockImage from "../assets/cerco_stock.webp";
-import pilaPlametaImage from "../assets/pilaPlameta.webp";
+import cercoStockImage from "../assets/cercoHouse.webp";
+import pilaPlametaImage from "../assets/palmetaLow.webp";
 
 const fenceTypes = [
   {
@@ -18,7 +18,7 @@ const fenceTypes = [
     title: "Producción Local de Calidad",
     description:
       "Nuestras palmetas son fabricadas localmente, asegurando la más alta calidad y durabilidad. Apoyamos la economía local con productos de confianza.",
-    height: "2.0m",
+    height: "1.5mtrs",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const fenceTypes = [
     title: "Protección para tu Hogar",
     description:
       "Ofrecemos soluciones robustas y estéticas para la seguridad de tu hogar. Nuestros cercos no solo protegen, sino que también embellecen tu propiedad.",
-    height: "2.2m",
+    height: "1.9mtrs",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const fenceTypes = [
     title: "Instalación Fácil y Rápida",
     description:
       "Contamos con un equipo de expertos que garantiza una instalación eficiente y profesional, minimizando las molestias y asegurando un acabado perfecto.",
-    height: "2.5m",
+    height: "2.2mtrs",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const fenceTypes = [
     title: "Cimentando Seguridad",
     description:
       "La base de nuestros cercos es la seguridad. Utilizamos materiales de primera para construir cimientos sólidos que perduran en el tiempo.",
-    height: "2.0m",
+    height: "2.2mtrs",
   },
   {
     id: 5,

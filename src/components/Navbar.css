@@ -1,5 +1,7 @@
 .navbar {
-  transition: top 0.5s, background-color 0.3s ease-in-out;
+  transition:
+    top 0.5s,
+    background-color 0.3s ease-in-out;
   /* Efecto de "vidrio esmerilado" */
   background-color: rgba(29, 53, 87, 0.5); /* Azul profundo semitransparente */
   backdrop-filter: blur(10px);
@@ -11,15 +13,13 @@
 }
 
 .navbar .navbar-brand,
-.navbar .nav-link,
-.navbar .contact-link {
+.navbar .nav-link {
   color: var(--texto-blanco) !important; /* Forzar color blanco */
   transition: color 0.3s ease;
 }
 
 .navbar .navbar-brand:hover,
-.navbar .nav-link:hover,
-.navbar .contact-link:hover {
+.navbar .nav-link:hover {
   color: rgba(255, 255, 255, 0.8) !important; /* Blanco más tenue al pasar el ratón */
 }
 
@@ -27,7 +27,9 @@
 .navbar .btn-outline-light {
   color: var(--texto-blanco);
   border-color: var(--texto-blanco);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .navbar .btn-outline-light:hover {
@@ -39,7 +41,9 @@
   background-color: var(--texto-blanco);
   color: var(--azul-profundo);
   border-color: var(--texto-blanco);
-  transition: background-color 0.3s ease, filter 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    filter 0.3s ease;
 }
 
 .navbar .btn-light:hover {

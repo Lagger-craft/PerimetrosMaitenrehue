@@ -1,13 +1,37 @@
 .bodega-page-section {
   min-height: 100vh;
-  padding-top: 120px; /* Ajuste para el navbar fijo */
-  background: transparent; /* Usa el fondo global */
+  padding: 8rem 2rem; /* More padding for a spacious look */
+  background: transparent;
 }
 
 .bodega-page-section h2 {
   color: var(--texto-blanco);
+  font-weight: 700;
 }
 
-.bodega-page-section p {
-  color: var(--texto-descripcion);
+.product-table {
+  vertical-align: middle;
+}
+
+.product-table thead th {
+  color: var(--texto-titulo-oscuro);
+  background-color: var(--base-clara-tarjeta);
+  border-bottom-width: 2px;
+}
+
+.product-table .badge {
+  font-size: 0.9em;
+  padding: 0.5em 0.75em;
+}
+
+.card.shadow-sm {
+  border: none;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.card .card-header {
+  background-color: rgba(244, 247, 250, 0.8);
+  border-bottom: 1px solid #dee2e6;
 }

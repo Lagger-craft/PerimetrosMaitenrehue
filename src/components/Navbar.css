@@ -1,0 +1,82 @@
+.navbar {
+  transition:
+    top 0.5s,
+    background-color 0.3s ease-in-out;
+  /* Efecto de "vidrio esmerilado" */
+  background-color: rgba(29, 53, 87, 0.5); /* Azul profundo semitransparente */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(74, 131, 166, 0.2); /* Borde sutil */
+}
+
+.navbar--hidden {
+  top: -120px;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--texto-blanco) !important; /* Forzar color blanco */
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .nav-link:hover {
+  color: rgba(255, 255, 255, 0.8) !important; /* Blanco más tenue al pasar el ratón */
+}
+
+/* Botones de "Ingresar" y "Registrarse" */
+.navbar .btn-outline-light {
+  color: var(--texto-blanco);
+  border-color: var(--texto-blanco);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: var(--texto-blanco);
+  color: var(--azul-profundo);
+}
+
+.navbar .btn-light {
+  background-color: var(--texto-blanco);
+  color: var(--azul-profundo);
+  border-color: var(--texto-blanco);
+  transition:
+    background-color 0.3s ease,
+    filter 0.3s ease;
+}
+
+.navbar .btn-light:hover {
+  filter: brightness(0.9);
+}
+
+/* --- Responsive Adjustments for Collapsed Navbar --- */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+  }
+
+  .navbar-collapse .nav-link,
+  .navbar-collapse .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem; /* Espacio entre elementos */
+  }
+
+  .navbar-collapse .nav-link:last-child,
+  .navbar-collapse .btn:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Ajuste específico para el dropdown */
+  .navbar-collapse .dropdown-menu {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-collapse .nav-item.dropdown {
+    width: 100%;
+  }
+}

@@ -1,0 +1,31 @@
+
+.footer {
+  background: var(--azul-profundo); /* Fondo oscuro y sólido */
+  padding: 4rem 0;
+  border-top: 1px solid rgba(74, 131, 166, 0.2);
+}
+
+.footer h5 {
+  color: var(--texto-blanco);
+  font-weight: 700;
+}
+
+.footer p,
+.footer li,
+.footer a {
+  color: rgba(244, 247, 250, 0.8); /* Blanco con ligera transparencia */
+}
+
+.footer hr {
+  border-top-color: var(--azul-claro);
+  opacity: 0.2;
+}
+
+.footer-contact-nav .nav-link {
+  color: rgba(244, 247, 250, 0.8);
+  transition: color 0.3s ease;
+}
+
+.footer-contact-nav .nav-link:hover {
+  color: var(--texto-blanco);
+}

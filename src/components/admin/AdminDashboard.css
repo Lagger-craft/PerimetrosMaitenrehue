@@ -1,0 +1,50 @@
+.admin-dashboard-section {
+  min-height: 100vh;
+  padding: 2rem 0; /* Padding vertical para espaciado interno */
+  background: transparent; /* Usa el fondo global */
+}
+
+.admin-dashboard-section h2 {
+  color: var(--texto-blanco);
+}
+
+.quote-admin-card {
+  background-color: rgba(
+    248,
+    250,
+    252,
+    0.96
+  ); /* Base clara con tinte azulado */
+  border-radius: 12px;
+  border: 1px solid rgba(23, 41, 60, 0.06);
+  box-shadow: 0 10px 30px rgba(10, 20, 34, 0.22);
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.quote-admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(10, 20, 34, 0.28);
+}
+
+.quote-admin-card .card-title {
+  color: var(--texto-titulo-oscuro);
+  font-weight: 600;
+}
+
+.quote-admin-card .card-text {
+  color: var(--texto-descripcion);
+}
+
+.quote-admin-card .btn-primary {
+  background-color: var(--azul-profundo);
+  border-color: var(--azul-profundo);
+  color: var(--texto-blanco);
+  transition: filter 0.2s ease;
+}
+
+.quote-admin-card .btn-primary:hover {
+  filter: brightness(1.15);
+}

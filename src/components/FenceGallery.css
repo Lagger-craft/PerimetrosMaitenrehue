@@ -1,0 +1,80 @@
+
+.fence-gallery {
+  padding: 5rem 0;
+  position: relative; /* Para contexto de z-index si es necesario */
+  background: transparent; /* El fondo ahora es global */
+}
+
+.fence-gallery h2 {
+  color: var(--texto-blanco);
+  text-align: center;
+  margin-bottom: 3.5rem;
+  font-weight: 700;
+}
+
+.fence-gallery .card {
+  background: rgba(248, 250, 252, 0.96); /* Base clara con tinte azulado */
+  border-radius: 12px;
+  border: 1px solid rgba(23, 41, 60, 0.06);
+  box-shadow: 0 10px 30px rgba(10, 20, 34, 0.22);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden; /* Asegura que el contenido respete el border-radius */
+}
+
+.fence-gallery .card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 56px rgba(10, 20, 34, 0.30);
+}
+
+.fence-gallery .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  filter: saturate(1.04); /* Da más vida a la imagen */
+}
+
+.fence-gallery .card-title {
+  color: var(--texto-titulo-oscuro); /* Azul profundo para títulos */
+  font-weight: 600;
+}
+
+.fence-gallery .card-text {
+  color: var(--texto-descripcion); /* Gris azulado para descripciones */
+}
+
+.fence-gallery .btn-primary {
+  background-color: var(--azul-profundo);
+  border-color: var(--azul-profundo);
+  color: var(--texto-blanco);
+  transition: filter 0.2s ease, background-color 0.2s ease;
+}
+
+.fence-gallery .btn-primary:hover {
+  filter: brightness(1.08);
+  background-color: var(--azul-profundo); /* Mantiene el color de fondo */
+  border-color: var(--azul-profundo);
+}
+
+/* Alternativa de hover con acento cálido */
+/* 
+.fence-gallery .btn-primary:hover {
+  background-color: var(--acento-calido);
+  border-color: var(--acento-calido);
+}
+*/
+
+.fence-gallery .card-clickable {
+  cursor: pointer;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .fence-gallery {
+    padding: 3rem 0;
+  }
+
+  .fence-gallery h2 {
+    /* clamp(min, preferred, max) */
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 2.5rem;
+  }
+}

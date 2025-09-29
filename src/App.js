@@ -13,7 +13,9 @@ const Login = lazy(() => import("./components/auth/Login.jsx"));
 const Register = lazy(() => import("./components/auth/Register.jsx"));
 const QuotePage = lazy(() => import("./components/QuotePage"));
 const AdminLogin = lazy(() => import("./components/auth/AdminLogin.jsx"));
-const AdminDashboard = lazy(() => import("./components/admin/AdminDashboard.jsx"));
+const AdminDashboard = lazy(
+  () => import("./components/admin/AdminDashboard.jsx"),
+);
 const BodegaPage = lazy(() => import("./components/admin/BodegaPage.jsx")); // Nuevo
 
 function App() {
@@ -23,10 +25,16 @@ function App() {
   const handleShow = () => setShowModal(true);
 
   return (
-    <AuthProvider> {/* Envolver la aplicación con el AuthProvider */}
+    <AuthProvider>
+      {" "}
+      {/* Envolver la aplicación con el AuthProvider */}
       <div className="App">
         <AppNavbar />
-        <Suspense fallback={<div className="text-center text-white p-5">Cargando...</div>}>
+        <Suspense
+          fallback={
+            <div className="text-center text-white p-5">Cargando...</div>
+          }
+        >
           <Routes>
             <Route
               path="/"
@@ -44,8 +52,12 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/cotizar" element={<QuotePage />} />
             <Route path="/administracion" element={<AdminLogin />} />
-            <Route path="/administracion/dashboard" element={<AdminDashboard />} />
-            <Route path="/administracion/bodega" element={<BodegaPage />} /> {/* Nueva ruta */}
+            <Route
+              path="/administracion/dashboard"
+              element={<AdminDashboard />}
+            />
+            <Route path="/administracion/bodega" element={<BodegaPage />} />{" "}
+            {/* Nueva ruta */}
           </Routes>
         </Suspense>
       </div>

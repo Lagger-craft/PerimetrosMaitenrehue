@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PerMaitenrehue - Gestión de Cercos Vibrados
 
 Este proyecto es una aplicación web completa para la gestión de una empresa de cercos vibrados, incluyendo un sitio web público para solicitar cotizaciones y un panel de administración para gestionar productos y revisar cotizaciones.
@@ -147,3 +148,7 @@ El servidor de desarrollo del frontend se iniciará (normalmente en `http://loca
     ```
     *(Asegúrate de que el `username` coincida con el que registraste).*
 3.  **Inicia sesión:** Ve a la página de administración (ej. `http://localhost:5173/administracion`) e inicia sesión con las credenciales del usuario `admin`. Serás redirigido al dashboard.
+=======
+# PerimetrosMaitenrehue
+Proceso de desarrollo de la pagina web para la empresa PerimetrosMaitenrehue LTDA
+>>>>>>> dba1d323f31545cb5244ab2f680bf2f47b3b6f83

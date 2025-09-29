@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PerimetrosMaitenrehue/static/css/main.09344794.css",
-    "main.js": "/PerimetrosMaitenrehue/static/js/main.5ba74e11.js",
+    "main.js": "/PerimetrosMaitenrehue/static/js/main.0c88902e.js",
     "static/css/555.15784aea.chunk.css": "/PerimetrosMaitenrehue/static/css/555.15784aea.chunk.css",
     "static/js/555.65a906de.chunk.js": "/PerimetrosMaitenrehue/static/js/555.65a906de.chunk.js",
     "static/css/337.15784aea.chunk.css": "/PerimetrosMaitenrehue/static/css/337.15784aea.chunk.css",
     "static/js/337.57fb9597.chunk.js": "/PerimetrosMaitenrehue/static/js/337.57fb9597.chunk.js",
     "static/css/206.7f465207.chunk.css": "/PerimetrosMaitenrehue/static/css/206.7f465207.chunk.css",
-    "static/js/206.44a70287.chunk.js": "/PerimetrosMaitenrehue/static/js/206.44a70287.chunk.js",
+    "static/js/206.22546ddf.chunk.js": "/PerimetrosMaitenrehue/static/js/206.22546ddf.chunk.js",
     "static/css/898.15784aea.chunk.css": "/PerimetrosMaitenrehue/static/css/898.15784aea.chunk.css",
     "static/js/898.5c1b4163.chunk.js": "/PerimetrosMaitenrehue/static/js/898.5c1b4163.chunk.js",
     "static/css/981.7cb4c71e.chunk.css": "/PerimetrosMaitenrehue/static/css/981.7cb4c71e.chunk.css",
@@ -29,13 +29,13 @@
     "static/media/cercoHouse.webp": "/PerimetrosMaitenrehue/static/media/cercoHouse.9fd39c747b1cf19afe50.webp",
     "index.html": "/PerimetrosMaitenrehue/index.html",
     "main.09344794.css.map": "/PerimetrosMaitenrehue/static/css/main.09344794.css.map",
-    "main.5ba74e11.js.map": "/PerimetrosMaitenrehue/static/js/main.5ba74e11.js.map",
+    "main.0c88902e.js.map": "/PerimetrosMaitenrehue/static/js/main.0c88902e.js.map",
     "555.15784aea.chunk.css.map": "/PerimetrosMaitenrehue/static/css/555.15784aea.chunk.css.map",
     "555.65a906de.chunk.js.map": "/PerimetrosMaitenrehue/static/js/555.65a906de.chunk.js.map",
     "337.15784aea.chunk.css.map": "/PerimetrosMaitenrehue/static/css/337.15784aea.chunk.css.map",
     "337.57fb9597.chunk.js.map": "/PerimetrosMaitenrehue/static/js/337.57fb9597.chunk.js.map",
     "206.7f465207.chunk.css.map": "/PerimetrosMaitenrehue/static/css/206.7f465207.chunk.css.map",
-    "206.44a70287.chunk.js.map": "/PerimetrosMaitenrehue/static/js/206.44a70287.chunk.js.map",
+    "206.22546ddf.chunk.js.map": "/PerimetrosMaitenrehue/static/js/206.22546ddf.chunk.js.map",
     "898.15784aea.chunk.css.map": "/PerimetrosMaitenrehue/static/css/898.15784aea.chunk.css.map",
     "898.5c1b4163.chunk.js.map": "/PerimetrosMaitenrehue/static/js/898.5c1b4163.chunk.js.map",
     "981.7cb4c71e.chunk.css.map": "/PerimetrosMaitenrehue/static/css/981.7cb4c71e.chunk.css.map",
@@ -47,6 +47,6 @@
   },
   "entrypoints": [
     "static/css/main.09344794.css",
-    "static/js/main.5ba74e11.js"
+    "static/js/main.0c88902e.js"
   ]
 }

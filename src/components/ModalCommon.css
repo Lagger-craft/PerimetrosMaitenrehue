@@ -91,6 +91,21 @@
   color: #3E6B4F;
 }
 
+/* WhatsApp specific styling */
+.contact-link-modal.whatsapp-link {
+  color: #25D366;
+  background-color: rgba(37, 211, 102, 0.1);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-link-modal.whatsapp-link:hover {
+  color: #128C7E;
+  background-color: rgba(37, 211, 102, 0.2);
+  transform: translateY(-1px);
+}
+
 /* Botón de acción principal (Contactar) */
 .modal-footer .btn-primary {
   background-color: #1E3D2F; /* Verde bosque húmedo */

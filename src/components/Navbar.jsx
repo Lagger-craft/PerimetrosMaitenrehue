@@ -6,14 +6,17 @@ import {
   Facebook,
   PersonCircle,
   PersonFillGear,
+  Whatsapp,
 } from "react-bootstrap-icons";
 import AuthContext from "../context/AuthContext"; // Importar el contexto
+import useScreenSize from "../hooks/useScreenSize"; // Hook para detectar tamaño de pantalla
 import "./Navbar.css";
 import logo from "../assets/mi-logo.png";
 
 const AppNavbar = memo(() => {
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const { isMobile } = useScreenSize(); // Detectar si es móvil
 
   const { user, logout } = useContext(AuthContext); // Usar el contexto
   const navigate = useNavigate();
@@ -22,6 +25,11 @@ const AppNavbar = memo(() => {
     logout(); // Llama a la función logout del contexto
     navigate("/"); // Redirige a la página principal
   };
+
+  // URLs para contacto
+  const phoneNumber = "+56987761691";
+  const whatsappURL = `https://wa.me/56987761691?text=${encodeURIComponent("Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?")}`;
+  const phoneURL = `tel:${phoneNumber}`;
 
   const controlNavbar = useCallback(() => {
     const currentScrollY = window.scrollY;
@@ -75,16 +83,49 @@ const AppNavbar = memo(() => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex align-items-center">
             {!(user && user.role === "admin") && (
-              <Button
-                href="tel:+56987761691"
-                variant="outline-light"
-                className="d-flex align-items-center me-2"
-                size="sm"
-              >
-                <Telephone className="me-2" />
-                <span className="d-none d-lg-inline">+56 9 8776 1691</span>
-                <span className="d-lg-none">Llamar</span>
-              </Button>
+              <>
+                {/* Botón principal - WhatsApp en móvil, teléfono en desktop */}
+                <Button
+                  href={isMobile ? whatsappURL : phoneURL}
+                  target={isMobile ? "_blank" : "_self"}
+                  rel={isMobile ? "noopener noreferrer" : ""}
+                  variant="outline-light"
+                  className="d-flex align-items-center me-2"
+                  size="sm"
+                  title={isMobile ? "Contactar por WhatsApp" : "Llamar por teléfono"}
+                >
+                  {isMobile ? (
+                    <>
+                      <Whatsapp className="me-2" />
+                      <span className="d-none d-lg-inline">WhatsApp</span>
+                      <span className="d-lg-none">WhatsApp</span>
+                    </>
+                  ) : (
+                    <>
+                      <Telephone className="me-2" />
+                      <span className="d-none d-lg-inline">{phoneNumber}</span>
+                      <span className="d-lg-none">Llamar</span>
+                    </>
+                  )}
+                </Button>
+                
+                {/* Botón secundario - Solo en desktop o como alternativa en móvil */}
+                {!isMobile && (
+                  <Button
+                    href={whatsappURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outline-success"
+                    className="d-flex align-items-center me-2"
+                    size="sm"
+                    title="Contactar por WhatsApp"
+                  >
+                    <Whatsapp className="me-2" />
+                    <span className="d-none d-xl-inline">WhatsApp</span>
+                    <span className="d-xl-none">WA</span>
+                  </Button>
+                )}
+              </>
             )}
             {!(user && user.role === "admin") && (
               <Button

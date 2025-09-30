@@ -42,6 +42,20 @@
   color: var(--azul-profundo);
 }
 
+.navbar .btn-outline-success {
+  color: #25D366;
+  border-color: #25D366;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.navbar .btn-outline-success:hover {
+  background-color: #25D366;
+  color: white;
+  border-color: #25D366;
+}
+
 .navbar .btn-light {
   background-color: var(--texto-blanco);
   color: var(--azul-profundo);
@@ -52,6 +66,15 @@
 
 .navbar .btn-light:hover {
   filter: brightness(0.9);
+}
+
+/* WhatsApp button specific styles */
+.navbar .btn-outline-success .bi-whatsapp {
+  color: #25D366;
+}
+
+.navbar .btn-outline-success:hover .bi-whatsapp {
+  color: white;
 }
 
 /* Admin navigation improvements */
@@ -124,6 +147,20 @@
     padding: 0.75rem 1rem;
     border-radius: 8px;
     margin: 0;
+  }
+
+  /* WhatsApp button prominence on mobile */
+  .navbar-collapse .btn-outline-light {
+    background-color: #25D366;
+    border-color: #25D366;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .navbar-collapse .btn-outline-light:hover {
+    background-color: #128C7E;
+    border-color: #128C7E;
+    color: white;
   }
 
   .admin-nav-links {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Modal, Button, Image } from 'react-bootstrap';
+import { Whatsapp } from 'react-bootstrap-icons';
 import './ModalCommon.css'; // Importar el CSS común para modales
 
 const FenceDetailModal = ({ show, handleClose, fence }) => {
@@ -28,8 +29,19 @@ const FenceDetailModal = ({ show, handleClose, fence }) => {
         <Button variant="secondary" onClick={handleClose}>
           Cerrar
         </Button>
+        <Button 
+          href={`https://wa.me/56987761691?text=${encodeURIComponent(`Hola, me interesa el ${fence.title}. ¿Podrían darme más información y cotización?`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="success" 
+          className="d-flex align-items-center"
+          onClick={handleClose}
+        >
+          <Whatsapp className="me-2" />
+          Cotizar por WhatsApp
+        </Button>
         <Button as={Link} to="/cotizar" variant="primary" onClick={handleClose}>
-          Cotizar este cerco
+          Cotizar en el sitio
         </Button>
       </Modal.Footer>
     </Modal>

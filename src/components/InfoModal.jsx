@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button, Nav } from "react-bootstrap";
-import { CheckCircleFill, Telephone, Facebook } from "react-bootstrap-icons";
+import { CheckCircleFill, Telephone, Facebook, Whatsapp } from "react-bootstrap-icons";
 import "./ModalCommon.css"; // Importar el CSS común para modales
 
 const InfoModal = ({ show, handleClose }) => {
@@ -39,6 +39,15 @@ const InfoModal = ({ show, handleClose }) => {
         <hr />
         <h6>Contacto Directo:</h6>
         <Nav className="flex-column">
+          <Nav.Link
+            href="https://wa.me/56987761691?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20sus%20cercos%20vibrados.%20%C2%BFPodr%C3%ADan%20ayudarme%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="d-flex align-items-center contact-link-modal whatsapp-link"
+          >
+            <Whatsapp className="me-2" />
+            Contactar por WhatsApp
+          </Nav.Link>
           <Nav.Link
             href="tel:+56987761691"
             className="d-flex align-items-center contact-link-modal"

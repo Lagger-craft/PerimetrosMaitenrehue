@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { API_ENDPOINTS } from "../../config/api.js";
 import "./AdminDashboard.css";
 import "../ModalCommon.css"; // Reutilizar estilos comunes de modal
 
@@ -31,7 +32,7 @@ const AdminDashboard = () => {
     const fetchQuotes = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/quotes", {
+        const response = await fetch(API_ENDPOINTS.quotes, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

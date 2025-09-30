@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Button, Modal, Form, Table, Image, Alert } f
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import { PencilSquare, Trash, PlusCircle } from 'react-bootstrap-icons';
+import { API_ENDPOINTS, getImageUrl } from '../../config/api.js';
 import './BodegaPage.css';
 
 const BodegaPage = () => {
@@ -32,7 +33,7 @@ const BodegaPage = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/products', {
+        const response = await fetch(API_ENDPOINTS.products, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -66,8 +67,8 @@ const BodegaPage = () => {
     const token = localStorage.getItem('token');
     const method = editingProduct ? 'PUT' : 'POST';
     const url = editingProduct
-      ? `http://localhost:5000/api/products/${editingProduct._id}`
-      : 'http://localhost:5000/api/products';
+      ? `${API_ENDPOINTS.products}/${editingProduct._id}`
+      : API_ENDPOINTS.products;
 
     if (editingProduct && !window.confirm('¿Estás seguro de que quieres guardar los cambios en este producto?')) {
       return;
@@ -119,7 +120,7 @@ const BodegaPage = () => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este producto?')) {
       const token = localStorage.getItem('token');
       try {
-        const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+        const response = await fetch(`${API_ENDPOINTS.products}/${productId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -189,7 +190,7 @@ const BodegaPage = () => {
                   filteredProducts.map(product => (
                     <tr key={product._id}>
                       <td>
-                        {product.image && <Image src={`http://localhost:5000${product.image}`} rounded width="60" />}
+                        {product.image && <Image src={getImageUrl(product.image)} rounded width="60" />}
                       </td>
                       <td className="fw-bold">{product.name}</td>
                       <td>
@@ -242,7 +243,7 @@ const ProductFormModal = ({ show, handleClose, handleSave, product }) => {
   useEffect(() => {
     if (product) {
       setFormData(product);
-      setImagePreview(product.image ? `http://localhost:5000${product.image}` : null);
+      setImagePreview(product.image ? getImageUrl(product.image) : null);
       setImageFile(null); // Clear file input on edit
     } else {
       setFormData({ name: '', description: '', stock: 0, price: 0, image: null });

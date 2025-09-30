@@ -9,6 +9,7 @@ import {
   Alert,
 } from "react-bootstrap";
 import { ArrowRight } from "react-bootstrap-icons"; // Añadido para consistencia si se usa en otro lugar
+import { API_ENDPOINTS } from "../config/api.js";
 import "./QuotePage.css";
 import cerco_stock from "../assets/cerco_stock.webp"; // Imagen genérica
 import cerco_190 from "../assets/cerco-190.webp"; // Imagen específica para 1.90m
@@ -199,7 +200,7 @@ const QuotePage = () => {
     setValidated(false); // Reset validation state on successful attempt
 
     try {
-      const response = await fetch("http://localhost:5000/api/quotes", {
+      const response = await fetch(API_ENDPOINTS.quotes, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

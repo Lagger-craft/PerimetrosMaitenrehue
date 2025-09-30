@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Person, Lock } from 'react-bootstrap-icons';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
+import { API_ENDPOINTS } from '../../config/api.js';
 import './AuthCommon.css'; // Importar el CSS común para autenticación
 
 const Register = () => {
@@ -17,7 +18,7 @@ const Register = () => {
     setMessage('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(API_ENDPOINTS.auth.register, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

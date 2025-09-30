@@ -1,0 +1,1 @@
+import{r as a,A as e,j as s,l as r,m as o}from"./index-CVu0YaVn.js";const i=()=>{const{user:t}=a.useContext(e);return!t||t.role!=="admin"?s.jsx(r,{to:"/administracion"}):s.jsx(o,{})};export{i as default};

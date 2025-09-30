@@ -9,6 +9,30 @@ const FenceDetailModal = ({ show, handleClose, fence }) => {
     return null;
   }
 
+  const whatsappURL = "https://wa.me/56987761691?text=" + encodeURIComponent(`Hola, me interesa el ${fence.title}. ¿Podrían darme más información y cotización?`);
+  
+  const handleWhatsAppClick = (e) => {
+    e.preventDefault();
+    
+    // Método más robusto para abrir WhatsApp
+    const link = document.createElement('a');
+    link.href = whatsappURL;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback para móviles
+    setTimeout(() => {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = whatsappURL;
+      }
+    }, 100);
+    
+    handleClose();
+  };
+
   return (
     <Modal show={show} onHide={handleClose} centered size="lg">
       <Modal.Header closeButton>
@@ -30,12 +54,9 @@ const FenceDetailModal = ({ show, handleClose, fence }) => {
           Cerrar
         </Button>
         <Button 
-          href={`https://wa.me/56987761691?text=${encodeURIComponent(`Hola, me interesa el ${fence.title}. ¿Podrían darme más información y cotización?`)}`}
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={handleWhatsAppClick}
           variant="success" 
           className="d-flex align-items-center"
-          onClick={handleClose}
         >
           <Whatsapp className="me-2" />
           Cotizar por WhatsApp

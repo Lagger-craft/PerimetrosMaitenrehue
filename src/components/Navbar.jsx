@@ -28,8 +28,39 @@ const AppNavbar = memo(() => {
 
   // URLs para contacto
   const phoneNumber = "+56987761691";
-  const whatsappURL = `https://wa.me/56987761691?text=${encodeURIComponent("Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?")}`;
+  const whatsappURL = "https://wa.me/56987761691?text=" + encodeURIComponent("Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?");
   const phoneURL = `tel:${phoneNumber}`;
+
+  // Función para detectar si es móvil de manera más robusta
+  const isMobileDevice = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+  };
+
+  // Función para manejar click de WhatsApp
+  const handleWhatsAppClick = (e) => {
+    e.preventDefault();
+    
+    // Intentar abrir WhatsApp
+    const whatsappLink = whatsappURL;
+    
+    // Crear un elemento temporal para abrir el enlace
+    const tempLink = document.createElement('a');
+    tempLink.href = whatsappLink;
+    tempLink.target = '_blank';
+    tempLink.rel = 'noopener noreferrer';
+    
+    // Intentar click programático
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+    
+    // Fallback para móviles
+    if (isMobileDevice()) {
+      setTimeout(() => {
+        window.location.href = whatsappLink;
+      }, 100);
+    }
+  };
 
   const controlNavbar = useCallback(() => {
     const currentScrollY = window.scrollY;
@@ -84,47 +115,31 @@ const AppNavbar = memo(() => {
           <Nav className="ms-auto d-flex align-items-center">
             {!(user && user.role === "admin") && (
               <>
-                {/* Botón principal - WhatsApp en móvil, teléfono en desktop */}
+                {/* Botón principal - Siempre mostrar ambas opciones */}
                 <Button
-                  href={isMobile ? whatsappURL : phoneURL}
-                  target={isMobile ? "_blank" : "_self"}
-                  rel={isMobile ? "noopener noreferrer" : ""}
+                  href={phoneURL}
                   variant="outline-light"
                   className="d-flex align-items-center me-2"
                   size="sm"
-                  title={isMobile ? "Contactar por WhatsApp" : "Llamar por teléfono"}
+                  title="Llamar por teléfono"
                 >
-                  {isMobile ? (
-                    <>
-                      <Whatsapp className="me-2" />
-                      <span className="d-none d-lg-inline">WhatsApp</span>
-                      <span className="d-lg-none">WhatsApp</span>
-                    </>
-                  ) : (
-                    <>
-                      <Telephone className="me-2" />
-                      <span className="d-none d-lg-inline">{phoneNumber}</span>
-                      <span className="d-lg-none">Llamar</span>
-                    </>
-                  )}
+                  <Telephone className="me-2" />
+                  <span className="d-none d-lg-inline">{phoneNumber}</span>
+                  <span className="d-lg-none">Llamar</span>
                 </Button>
                 
-                {/* Botón secundario - Solo en desktop o como alternativa en móvil */}
-                {!isMobile && (
-                  <Button
-                    href={whatsappURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="outline-success"
-                    className="d-flex align-items-center me-2"
-                    size="sm"
-                    title="Contactar por WhatsApp"
-                  >
-                    <Whatsapp className="me-2" />
-                    <span className="d-none d-xl-inline">WhatsApp</span>
-                    <span className="d-xl-none">WA</span>
-                  </Button>
-                )}
+                {/* Botón de WhatsApp - Siempre visible con manejo especial */}
+                <Button
+                  onClick={handleWhatsAppClick}
+                  variant="outline-success"
+                  className="d-flex align-items-center me-2 whatsapp-btn"
+                  size="sm"
+                  title="Contactar por WhatsApp"
+                >
+                  <Whatsapp className="me-2" />
+                  <span className="d-none d-lg-inline">WhatsApp</span>
+                  <span className="d-lg-none">WA</span>
+                </Button>
               </>
             )}
             {!(user && user.role === "admin") && (

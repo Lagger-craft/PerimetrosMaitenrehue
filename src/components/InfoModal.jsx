@@ -5,6 +5,30 @@ import { CheckCircleFill, Telephone, Facebook, Whatsapp } from "react-bootstrap-
 import "./ModalCommon.css"; // Importar el CSS común para modales
 
 const InfoModal = ({ show, handleClose }) => {
+  const whatsappURL = "https://wa.me/56987761691?text=" + encodeURIComponent("Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?");
+  
+  const handleWhatsAppClick = (e) => {
+    e.preventDefault();
+    
+    // Método más robusto para abrir WhatsApp
+    const link = document.createElement('a');
+    link.href = whatsappURL;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Fallback para móviles
+    setTimeout(() => {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = whatsappURL;
+      }
+    }, 100);
+    
+    handleClose();
+  };
+
   return (
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
@@ -40,10 +64,9 @@ const InfoModal = ({ show, handleClose }) => {
         <h6>Contacto Directo:</h6>
         <Nav className="flex-column">
           <Nav.Link
-            href="https://wa.me/56987761691?text=Hola%2C%20me%20interesa%20obtener%20informaci%C3%B3n%20sobre%20sus%20cercos%20vibrados.%20%C2%BFPodr%C3%ADan%20ayudarme%3F"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
             className="d-flex align-items-center contact-link-modal whatsapp-link"
+            style={{ cursor: 'pointer' }}
           >
             <Whatsapp className="me-2" />
             Contactar por WhatsApp

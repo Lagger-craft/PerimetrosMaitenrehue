@@ -18,6 +18,7 @@ const AdminDashboard = lazy(
 );
 const BodegaPage = lazy(() => import("./components/admin/BodegaPage.jsx")); // Nuevo
 const AdminPage = lazy(() => import("./pages/AdminPage.jsx"));
+const WhatsAppTestPage = lazy(() => import("./components/WhatsAppTestPage.jsx")); // Página de debug
 
 const PageLayout = () => (
   <div className="page-content">
@@ -62,6 +63,7 @@ function App() {
             {/* Rutas con Padding para el Navbar */}
             <Route element={<PageLayout />}>
               <Route path="/cotizar" element={<QuotePage />} />
+              <Route path="/whatsapp-test" element={<WhatsAppTestPage />} />
               <Route element={<AdminPage />}>
                 <Route
                   path="/administracion/dashboard"

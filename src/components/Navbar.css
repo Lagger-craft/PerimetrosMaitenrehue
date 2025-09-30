@@ -1,11 +1,10 @@
 .navbar {
-  transition:
-    top 0.5s,
-    background-color 0.3s ease-in-out;
+  transition: top 0.5s, background-color 0.3s ease-in-out;
   /* Efecto de "vidrio esmerilado" */
   background-color: rgba(29, 53, 87, 0.5); /* Azul profundo semitransparente */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(74, 131, 166, 0.2); /* Borde sutil */
+  min-height: 80px;
 }
 
 .navbar--hidden {
@@ -23,13 +22,19 @@
   color: rgba(255, 255, 255, 0.8) !important; /* Blanco más tenue al pasar el ratón */
 }
 
-/* Botones de "Ingresar" y "Registrarse" */
+/* Logo responsive */
+.navbar-brand img {
+  max-height: 70px;
+  width: auto;
+}
+
+/* Botones responsivos */
 .navbar .btn-outline-light {
   color: var(--texto-blanco);
   border-color: var(--texto-blanco);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 .navbar .btn-outline-light:hover {
@@ -41,21 +46,75 @@
   background-color: var(--texto-blanco);
   color: var(--azul-profundo);
   border-color: var(--texto-blanco);
-  transition:
-    background-color 0.3s ease,
-    filter 0.3s ease;
+  transition: background-color 0.3s ease, filter 0.3s ease;
+  font-weight: 600;
 }
 
 .navbar .btn-light:hover {
   filter: brightness(0.9);
 }
 
-/* --- Responsive Adjustments for Collapsed Navbar --- */
+/* Admin navigation improvements */
+.admin-nav-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.admin-nav-links .btn {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+/* User dropdown */
+.navbar .dropdown-toggle {
+  border: none;
+  background: transparent;
+  color: var(--texto-blanco);
+  padding: 0.5rem;
+}
+
+.navbar .dropdown-toggle:focus {
+  box-shadow: none;
+}
+
+.navbar .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(29, 53, 87, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .dropdown-item {
+  color: var(--texto-titulo-oscuro);
+  transition: background-color 0.2s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: rgba(29, 53, 87, 0.1);
+}
+
+/* Mobile responsive adjustments */
 @media (max-width: 991.98px) {
+  .navbar {
+    min-height: 70px;
+  }
+  
+  .navbar-brand img {
+    max-height: 50px;
+  }
+  
   .navbar-collapse {
-    padding: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(29, 53, 87, 0.95);
+    border-radius: 0 0 12px 12px;
+    padding: 1.5rem;
     margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-collapse .nav {
+    gap: 0.75rem;
   }
 
   .navbar-collapse .nav-link,
@@ -63,20 +122,79 @@
     width: 100%;
     text-align: center;
     padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem; /* Espacio entre elementos */
+    border-radius: 8px;
+    margin: 0;
   }
 
-  .navbar-collapse .nav-link:last-child,
-  .navbar-collapse .btn:last-child {
-    margin-bottom: 0;
+  .admin-nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
   }
 
-  /* Ajuste específico para el dropdown */
+  .admin-nav-links .btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Dropdown en mobile */
   .navbar-collapse .dropdown-menu {
+    position: static;
+    float: none;
     width: 100%;
-    text-align: center;
+    margin-top: 0.5rem;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.1);
   }
-  .navbar-collapse .nav-item.dropdown {
-    width: 100%;
+  
+  .navbar-collapse .dropdown-item {
+    color: var(--texto-blanco);
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-collapse .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    max-height: 45px;
+  }
+  
+  .navbar-collapse {
+    padding: 1rem;
+  }
+  
+  .navbar .btn-outline-light {
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  /* Ocultar texto en botones pequeños */
+  .navbar .btn-outline-light .d-sm-inline {
+    display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    min-height: 60px;
+  }
+  
+  .navbar-brand img {
+    max-height: 40px;
+  }
+  
+  .navbar-collapse .btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.75rem;
+  }
+  
+  .admin-nav-links .btn {
+    font-size: 0.85rem;
   }
 }

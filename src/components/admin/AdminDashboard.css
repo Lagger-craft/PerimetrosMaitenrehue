@@ -1,27 +1,24 @@
 .admin-dashboard-section {
   min-height: 100vh;
-  padding: 2rem 0; /* Padding vertical para espaciado interno */
+  padding: 2rem 1rem; /* Reducido en móviles */
   background: transparent; /* Usa el fondo global */
 }
 
 .admin-dashboard-section h2 {
   color: var(--texto-blanco);
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
+/* Cards responsive grid */
 .quote-admin-card {
-  background-color: rgba(
-    248,
-    250,
-    252,
-    0.96
-  ); /* Base clara con tinte azulado */
+  background-color: rgba(248, 250, 252, 0.96);
   border-radius: 12px;
   border: 1px solid rgba(23, 41, 60, 0.06);
   box-shadow: 0 10px 30px rgba(10, 20, 34, 0.22);
-  transition:
-    transform 0.3s ease-in-out,
-    box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   overflow: hidden;
+  height: 100%;
 }
 
 .quote-admin-card:hover {
@@ -32,10 +29,14 @@
 .quote-admin-card .card-title {
   color: var(--texto-titulo-oscuro);
   font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
 }
 
 .quote-admin-card .card-text {
   color: var(--texto-descripcion);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .quote-admin-card .btn-primary {
@@ -43,8 +44,105 @@
   border-color: var(--azul-profundo);
   color: var(--texto-blanco);
   transition: filter 0.2s ease;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
 }
 
 .quote-admin-card .btn-primary:hover {
   filter: brightness(1.15);
+}
+
+/* Modal responsive improvements */
+.modal-dialog {
+  margin: 1rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-body p {
+  margin-bottom: 0.75rem;
+  word-wrap: break-word;
+}
+
+.modal-body strong {
+  color: var(--texto-titulo-oscuro);
+  font-weight: 600;
+}
+
+/* Statistics summary for mobile */
+.admin-stats-summary {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.admin-stats-summary h4 {
+  color: var(--texto-blanco);
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .admin-dashboard-section {
+    padding: 1rem 0.5rem;
+  }
+  
+  .admin-dashboard-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .quote-admin-card {
+    margin-bottom: 1rem;
+  }
+  
+  .quote-admin-card .card-body {
+    padding: 1rem;
+  }
+  
+  .quote-admin-card .card-title {
+    font-size: 1rem;
+  }
+  
+  .quote-admin-card .card-text {
+    font-size: 0.85rem;
+  }
+  
+  .quote-admin-card .btn-primary {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+  
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  .modal-body p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-dashboard-section {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .admin-dashboard-section h2 {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }

@@ -78,10 +78,12 @@ const AppNavbar = memo(() => {
               <Button
                 href="tel:+56987761691"
                 variant="outline-light"
-                className="d-flex align-items-center me-3"
+                className="d-flex align-items-center me-2"
+                size="sm"
               >
                 <Telephone className="me-2" />
-                +56 9 8776 1691
+                <span className="d-none d-lg-inline">+56 9 8776 1691</span>
+                <span className="d-lg-none">Llamar</span>
               </Button>
             )}
             {!(user && user.role === "admin") && (
@@ -91,6 +93,7 @@ const AppNavbar = memo(() => {
                 rel="noopener noreferrer"
                 variant="outline-light"
                 className="d-flex align-items-center me-3"
+                size="sm"
               >
                 <Facebook className="me-2" />
                 Facebook
@@ -98,33 +101,35 @@ const AppNavbar = memo(() => {
             )}
 
             {user && user.role === "admin" ? (
-              <>
+              <div className="admin-nav-links">
                 <Link
                   to="/administracion/dashboard"
-                  className="btn btn-outline-light me-2"
+                  className="btn btn-outline-light"
                 >
-                  Cotizaciones
+                  <span className="d-none d-sm-inline">Ver </span>Cotizaciones
                 </Link>
                 <Link
                   to="/administracion/bodega"
-                  className="btn btn-light me-3"
+                  className="btn btn-light"
                 >
-                  Bodega
+                  <span className="d-none d-sm-inline">Gestión </span>Bodega
                 </Link>
                 <NavDropdown
                   title={userIcon}
-                  id="basic-nav-dropdown"
+                  id="admin-nav-dropdown"
                   align="end"
                 >
                   <NavDropdown.ItemText>
-                    Conectado como: <strong>{user.username}</strong>
+                    <strong>{user.username}</strong>
+                    <br />
+                    <small className="text-muted">Administrador</small>
                   </NavDropdown.ItemText>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={handleLogout}>
                     Cerrar Sesión
                   </NavDropdown.Item>
                 </NavDropdown>
-              </>
+              </div>
             ) : user ? (
               <NavDropdown title={userIcon} id="basic-nav-dropdown" align="end">
                 <NavDropdown.ItemText>

@@ -1,0 +1,161 @@
+/* Admin Mobile Navigation Styles */
+.admin-mobile-nav-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1040;
+}
+
+.mobile-menu-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--azul-profundo);
+  border: none;
+  box-shadow: 0 4px 16px rgba(29, 53, 87, 0.3);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(29, 53, 87, 0.4);
+}
+
+/* Offcanvas customization */
+.admin-offcanvas-header {
+  background-color: var(--azul-profundo);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-offcanvas-header .offcanvas-title {
+  color: white;
+  font-weight: 600;
+}
+
+.admin-offcanvas-header .btn-close {
+  filter: invert(1);
+}
+
+.admin-offcanvas-body {
+  background: linear-gradient(180deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+  color: white;
+  padding: 0;
+}
+
+/* User info section */
+.admin-user-info {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.admin-user-info h6 {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.admin-user-info p {
+  color: white;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Navigation menu */
+.admin-nav-menu {
+  padding: 1rem 0;
+  flex-grow: 1;
+}
+
+.admin-nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 1rem 1.5rem !important;
+  margin: 0.25rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.admin-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white !important;
+  transform: translateX(4px);
+}
+
+.admin-nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white !important;
+  font-weight: 600;
+}
+
+.admin-nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: white;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Footer section */
+.admin-nav-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-nav-footer .btn-outline-danger {
+  border-color: rgba(220, 53, 69, 0.8);
+  color: rgba(220, 53, 69, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.admin-nav-footer .btn-outline-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .admin-mobile-nav-trigger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .mobile-menu-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .admin-user-info {
+    padding: 1rem;
+  }
+  
+  .admin-nav-link {
+    padding: 0.75rem 1rem !important;
+    margin: 0.25rem 0.75rem;
+  }
+  
+  .admin-nav-footer {
+    padding: 1rem;
+  }
+}

@@ -4,10 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import { PencilSquare, Trash, PlusCircle } from 'react-bootstrap-icons';
 import { API_ENDPOINTS, getImageUrl } from '../../config/api.js';
+import AdminMobileNav from './AdminMobileNav';
 import './BodegaPage.css';
+import '../LoadingAnimations.css';
 
 const BodegaPage = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -143,93 +145,204 @@ const BodegaPage = () => {
   );
 
   if (loading) {
-    return <div className="text-center text-white p-5">Cargando productos...</div>;
+    return (
+      <div className="loading-state">
+        <div className="spinner-border text-light mb-3" role="status">
+          <span className="visually-hidden">Cargando...</span>
+        </div>
+        <p>Cargando productos...</p>
+      </div>
+    );
   }
 
   if (error) {
-    return <div className="text-center text-danger p-5">Error: {error}</div>;
+    return (
+      <div className="error-state">
+        <div className="alert alert-danger" role="alert">
+          <h4 className="alert-heading">Error</h4>
+          <p>{error}</p>
+          <hr />
+          <p className="mb-0">
+            <Button variant="outline-danger" onClick={() => window.location.reload()}>
+              Reintentar
+            </Button>
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <section className="bodega-page-section">
-      <Container fluid>
-        <Row className="mb-4 align-items-center">
-          <Col>
-            <h2 className="text-white">Gestión de Bodega</h2>
-          </Col>
-          <Col xs="auto">
-            <Button variant="success" onClick={() => handleShowModal()}>
-              <PlusCircle className="me-2" />
-              Agregar Producto
-            </Button>
-          </Col>
-        </Row>
+    <>
+      <section className="bodega-page-section">
+        <Container fluid className="px-2 px-md-3">
+          <div className="bodega-header">
+            <Row className="mb-3 align-items-center">
+              <Col>
+                <h2 className="text-white mb-0">Gestión de Bodega</h2>
+              </Col>
+              <Col xs="auto">
+                <Button variant="success" onClick={() => handleShowModal()}>
+                  <PlusCircle className="me-2" />
+                  <span className="d-none d-sm-inline">Agregar </span>Producto
+                </Button>
+              </Col>
+            </Row>
+          </div>
 
-        <Card className="shadow-sm">
-          <Card.Header>
-            <Form.Control
-              type="text"
-              placeholder="Buscar producto por nombre..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </Card.Header>
-          <Card.Body>
-            <Table responsive hover className="product-table">
-              <thead>
-                <tr>
-                  <th>Imagen</th>
-                  <th>Nombre</th>
-                  <th>Stock</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
+          <Card className="shadow-sm">
+            <Card.Header className="search-filters-section">
+              <Form.Control
+                type="text"
+                placeholder="Buscar producto por nombre..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </Card.Header>
+            <Card.Body className="p-0">
+              {/* Vista de tabla para desktop */}
+              <div className="product-table-container">
+                <Table responsive hover className="product-table">
+                  <thead>
+                    <tr>
+                      <th style={{ width: '80px' }}>Imagen</th>
+                      <th>Nombre</th>
+                      <th style={{ width: '120px' }}>Stock</th>
+                      <th style={{ width: '120px' }}>Precio</th>
+                      <th style={{ width: '120px' }}>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredProducts.length > 0 ? (
+                      filteredProducts.map(product => (
+                        <tr key={product._id}>
+                          <td>
+                            {product.image ? (
+                              <Image 
+                                src={getImageUrl(product.image)} 
+                                className="product-image-table"
+                                alt={product.name}
+                              />
+                            ) : (
+                              <div className="product-image-table bg-light d-flex align-items-center justify-content-center">
+                                <span style={{ fontSize: '0.7rem', color: '#666' }}>Sin imagen</span>
+                              </div>
+                            )}
+                          </td>
+                          <td className="product-name">{product.name}</td>
+                          <td>
+                            <span className={`badge ${product.stock > 50 ? 'bg-success' : product.stock > 10 ? 'bg-warning' : 'bg-danger'}`}>
+                              {product.stock} un.
+                            </span>
+                          </td>
+                          <td className="product-price">${product.price.toLocaleString('es-CL')}</td>
+                          <td className="actions-cell">
+                            <Button 
+                              variant="outline-primary" 
+                              size="sm" 
+                              className="me-1" 
+                              onClick={() => handleShowModal(product)}
+                              title="Editar"
+                            >
+                              <PencilSquare />
+                            </Button>
+                            <Button 
+                              variant="outline-danger" 
+                              size="sm" 
+                              onClick={() => handleDeleteProduct(product._id)}
+                              title="Eliminar"
+                            >
+                              <Trash />
+                            </Button>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="5" className="text-center py-4">
+                          <Alert variant="info" className="mb-0">
+                            {searchTerm ? 'No se encontraron productos que coincidan con la búsqueda.' : 'No hay productos registrados.'}
+                          </Alert>
+                        </td>
+                      </tr>
+                    )}
+                  </tbody>
+                </Table>
+              </div>
+
+              {/* Vista de tarjetas para móvil */}
+              <div className="mobile-products-view p-3">
                 {filteredProducts.length > 0 ? (
                   filteredProducts.map(product => (
-                    <tr key={product._id}>
-                      <td>
-                        {product.image && <Image src={getImageUrl(product.image)} rounded width="60" />}
-                      </td>
-                      <td className="fw-bold">{product.name}</td>
-                      <td>
-                        <span className={`badge ${product.stock > 50 ? 'bg-success' : product.stock > 10 ? 'bg-warning' : 'bg-danger'}`}>
-                          {product.stock} unidades
-                        </span>
-                      </td>
-                      <td>${product.price.toLocaleString('es-CL')}</td>
-                      <td>
-                        <Button variant="outline-primary" size="sm" className="me-2" onClick={() => handleShowModal(product)}>
-                          <PencilSquare />
-                        </Button>
-                        <Button variant="outline-danger" size="sm" onClick={() => handleDeleteProduct(product._id)}>
-                          <Trash />
-                        </Button>
-                      </td>
-                    </tr>
+                    <div key={product._id} className="product-mobile-card">
+                      <Row className="align-items-center">
+                        <Col xs="auto">
+                          {product.image ? (
+                            <Image 
+                              src={getImageUrl(product.image)} 
+                              className="product-image-mobile"
+                              alt={product.name}
+                            />
+                          ) : (
+                            <div className="product-image-mobile bg-light d-flex align-items-center justify-content-center">
+                              <span style={{ fontSize: '0.7rem', color: '#666' }}>Sin imagen</span>
+                            </div>
+                          )}
+                        </Col>
+                        <Col>
+                          <div className="product-info">
+                            <h5 className="mb-1">{product.name}</h5>
+                            <p><strong>Stock:</strong> 
+                              <span className={`badge ms-2 ${product.stock > 50 ? 'bg-success' : product.stock > 10 ? 'bg-warning' : 'bg-danger'}`}>
+                                {product.stock} unidades
+                              </span>
+                            </p>
+                            <p><strong>Precio:</strong> ${product.price.toLocaleString('es-CL')}</p>
+                          </div>
+                          <div className="product-actions">
+                            <Button 
+                              variant="outline-primary" 
+                              size="sm" 
+                              onClick={() => handleShowModal(product)}
+                            >
+                              <PencilSquare className="me-1" />
+                              Editar
+                            </Button>
+                            <Button 
+                              variant="outline-danger" 
+                              size="sm" 
+                              onClick={() => handleDeleteProduct(product._id)}
+                            >
+                              <Trash className="me-1" />
+                              Eliminar
+                            </Button>
+                          </div>
+                        </Col>
+                      </Row>
+                    </div>
                   ))
                 ) : (
-                  <tr>
-                    <td colSpan="5" className="text-center">
-                      <Alert variant="info">No se encontraron productos.</Alert>
-                    </td>
-                  </tr>
+                  <Alert variant="info" className="text-center">
+                    {searchTerm ? 'No se encontraron productos que coincidan con la búsqueda.' : 'No hay productos registrados.'}
+                  </Alert>
                 )}
-              </tbody>
-            </Table>
-          </Card.Body>
-        </Card>
-      </Container>
+              </div>
+            </Card.Body>
+          </Card>
+        </Container>
 
-      {/* Add/Edit Modal */}
-      <ProductFormModal
-        show={showModal}
-        handleClose={handleCloseModal}
-        handleSave={handleSaveProduct}
-        product={editingProduct}
-      />
-    </section>
+        {/* Add/Edit Modal */}
+        <ProductFormModal
+          show={showModal}
+          handleClose={handleCloseModal}
+          handleSave={handleSaveProduct}
+          product={editingProduct}
+        />
+      </section>
+      
+      {/* Navegación móvil para administradores */}
+      <AdminMobileNav user={user} onLogout={logout} />
+    </>
   );
 };
 
@@ -293,47 +406,109 @@ const ProductFormModal = ({ show, handleClose, handleSave, product }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose} centered>
+    <Modal show={show} onHide={handleClose} centered className="product-form-modal">
       <Modal.Header closeButton>
         <Modal.Title>{product ? 'Editar Producto' : 'Agregar Producto'}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
-            <Form.Label>Nombre del Producto</Form.Label>
-            <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} required />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Descripción</Form.Label>
-            <Form.Control as="textarea" rows={3} name="description" value={formData.description} onChange={handleChange} />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Imagen del Producto</Form.Label>
-            <Form.Control type="file" name="imageFile" onChange={handleFileChange} accept=".png,.jpg,.jpeg,.webp" />
-            {imageError && <Alert variant="danger" className="mt-2">{imageError}</Alert>}
-            {imagePreview && (
-              <div className="mt-3 text-center">
-                <Image src={imagePreview} alt="Previsualización" fluid rounded style={{ maxHeight: '150px' }} />
-              </div>
-            )}
-          </Form.Group>
           <Row>
-            <Col>
+            <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Stock</Form.Label>
-                <Form.Control type="number" name="stock" value={formData.stock} onChange={handleChange} required min="0" />
+                <Form.Label>Nombre del Producto</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  name="name" 
+                  value={formData.name} 
+                  onChange={handleChange} 
+                  required 
+                  placeholder="Ingrese el nombre del producto"
+                />
               </Form.Group>
             </Col>
-            <Col>
+            <Col md={6}>
               <Form.Group className="mb-3">
-                <Form.Label>Precio</Form.Label>
-                <Form.Control type="number" name="price" value={formData.price} onChange={handleChange} required min="0" />
+                <Form.Label>Precio (CLP)</Form.Label>
+                <Form.Control 
+                  type="number" 
+                  name="price" 
+                  value={formData.price} 
+                  onChange={handleChange} 
+                  required 
+                  min="0"
+                  placeholder="0"
+                />
               </Form.Group>
             </Col>
           </Row>
-          <Button variant="primary" type="submit" className="w-100">
-            Guardar Cambios
-          </Button>
+          
+          <Row>
+            <Col md={6}>
+              <Form.Group className="mb-3">
+                <Form.Label>Stock</Form.Label>
+                <Form.Control 
+                  type="number" 
+                  name="stock" 
+                  value={formData.stock} 
+                  onChange={handleChange} 
+                  required 
+                  min="0"
+                  placeholder="0"
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6}>
+              <Form.Group className="mb-3">
+                <Form.Label>Imagen del Producto</Form.Label>
+                <Form.Control 
+                  type="file" 
+                  name="imageFile" 
+                  onChange={handleFileChange} 
+                  accept=".png,.jpg,.jpeg,.webp"
+                  size="sm"
+                />
+                {imageError && <Alert variant="danger" className="mt-2 py-2">{imageError}</Alert>}
+              </Form.Group>
+            </Col>
+          </Row>
+          
+          <Form.Group className="mb-3">
+            <Form.Label>Descripción</Form.Label>
+            <Form.Control 
+              as="textarea" 
+              rows={3} 
+              name="description" 
+              value={formData.description} 
+              onChange={handleChange}
+              placeholder="Descripción opcional del producto"
+            />
+          </Form.Group>
+          
+          {imagePreview && (
+            <div className="image-preview">
+              <p className="mb-2"><strong>Vista previa:</strong></p>
+              <Image 
+                src={imagePreview} 
+                alt="Previsualización" 
+                fluid 
+                rounded 
+                style={{ maxHeight: '120px', maxWidth: '100%' }} 
+              />
+            </div>
+          )}
+          
+          <Row className="mt-4">
+            <Col>
+              <Button variant="secondary" onClick={handleClose} className="w-100 mb-2 mb-md-0">
+                Cancelar
+              </Button>
+            </Col>
+            <Col>
+              <Button variant="primary" type="submit" className="w-100" disabled={!!imageError}>
+                {product ? 'Actualizar' : 'Crear'} Producto
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </Modal.Body>
     </Modal>

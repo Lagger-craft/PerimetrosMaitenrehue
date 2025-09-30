@@ -34,7 +34,7 @@ const fenceTypes = [
     title: "Instalación Fácil y Rápida",
     description:
       "Contamos con un equipo de expertos que garantiza una instalación eficiente y profesional, minimizando las molestias y asegurando un acabado perfecto.",
-    height: "2.2mtrs",
+    height: "2.1mtrs",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const fenceTypes = [
     title: "Cimentando Seguridad",
     description:
       "La base de nuestros cercos es la seguridad. Utilizamos materiales de primera para construir cimientos sólidos que perduran en el tiempo.",
-    height: "2.2mtrs",
+    height: "2.4mtrs",
   },
   {
     id: 5,

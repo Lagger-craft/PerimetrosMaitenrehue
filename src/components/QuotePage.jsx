@@ -26,7 +26,8 @@ const FENCE_COMPONENTS_BY_HEIGHT = {
     "1 Placa de 30cm de alto",
     "1 Barda (10cm de altura efectiva)",
   ],
-  "2.20m": ["🚧 Proximamente"],
+  "2.10m": ["4 Placas de 50cm de alto", "1 Barda (10cm de altura efectiva)"],
+  "2.40m": ["4 Placas de 50cm de alto", "1 Barda (30cm de altura efectiva)"],
   Otra: [
     "Componentes para altura personalizada: Por favor, consulta con un asesor.",
   ],
@@ -277,7 +278,8 @@ const QuotePage = () => {
                           isInvalid={!!rutError} // Marcar como inválido si hay rutError
                         />
                         <Form.Control.Feedback type="invalid">
-                          {rutError || "Por favor, ingresa un RUT válido (ej. 12.345.678-9)."}
+                          {rutError ||
+                            "Por favor, ingresa un RUT válido (ej. 12.345.678-9)."}
                         </Form.Control.Feedback>
                       </Form.Group>
                     </Col>
@@ -342,7 +344,8 @@ const QuotePage = () => {
                           <option value="">Selecciona una altura</option>
                           <option>1.50m</option>
                           <option>1.90m</option>
-                          <option>2.20m</option>
+                          <option>2.10m</option>
+                          <option>2.40m</option>
                           <option>Otra</option>
                         </Form.Select>
                         <Form.Control.Feedback type="invalid">

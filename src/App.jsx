@@ -17,6 +17,8 @@ const AdminDashboard = lazy(
   () => import("./components/admin/AdminDashboard.jsx"),
 );
 const BodegaPage = lazy(() => import("./components/admin/BodegaPage.jsx")); // Nuevo
+const InvoicePage = lazy(() => import("./components/admin/InvoicePage.jsx")); // Página de facturación
+const InvoiceListPage = lazy(() => import("./components/admin/InvoiceListPage.jsx")); // Lista de facturas
 const AdminPage = lazy(() => import("./pages/AdminPage.jsx"));
 const WhatsAppTestPage = lazy(() => import("./components/WhatsAppTestPage.jsx")); // Página de debug
 
@@ -70,6 +72,8 @@ function App() {
                   element={<AdminDashboard />}
                 />
                 <Route path="/administracion/bodega" element={<BodegaPage />} />
+                <Route path="/administracion/facturacion" element={<InvoicePage />} />
+                <Route path="/administracion/facturas" element={<InvoiceListPage />} />
               </Route>
             </Route>
           </Routes>

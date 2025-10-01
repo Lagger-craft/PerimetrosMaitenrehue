@@ -1,0 +1,314 @@
+/* InvoiceTemplate.css */
+
+.invoice-template {
+  background: white;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.invoice-container {
+  max-width: 210mm; /* A4 width */
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+/* ENCABEZADO */
+.invoice-header {
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 20px;
+}
+
+.company-info {
+  text-align: left;
+}
+
+.company-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.company-slogan {
+  font-size: 1.1rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.company-details p {
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.document-info {
+  text-align: right;
+}
+
+.document-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.document-details p {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* SECCIONES */
+.client-section,
+.comments-section,
+.logistics-section,
+.items-section,
+.totals-section {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+/* TARJETAS */
+.client-card,
+.comments-card,
+.totals-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.client-card .card-body,
+.comments-card .card-body,
+.totals-card .card-body {
+  padding: 20px;
+}
+
+.client-details p,
+.comments-text {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.comments-text {
+  font-style: italic;
+  color: #666;
+  min-height: 60px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* TABLAS */
+.logistics-table,
+.items-table {
+  width: 100%;
+  margin-bottom: 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table-header-blue {
+  background-color: #007bff;
+  color: white;
+}
+
+.table-header {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.logistics-table th,
+.items-table th,
+.logistics-table td,
+.items-table td {
+  padding: 12px 8px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.logistics-table th,
+.items-table th {
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.items-table th:nth-child(3),
+.items-table th:nth-child(4),
+.items-table th:nth-child(5),
+.items-table td:nth-child(3),
+.items-table td:nth-child(4),
+.items-table td:nth-child(5) {
+  text-align: right;
+}
+
+.items-table td:nth-child(1) {
+  text-align: center;
+  width: 80px;
+}
+
+.items-table td:nth-child(2) {
+  width: 40%;
+}
+
+/* TOTALES */
+.totals-details {
+  font-size: 0.95rem;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 5px 0;
+}
+
+.total-final {
+  font-size: 1.1rem;
+  padding: 10px 0;
+  margin-top: 10px;
+  border-top: 2px solid #007bff;
+  color: #007bff;
+}
+
+/* PIE DE PÁGINA */
+.footer-section {
+  margin-top: 40px;
+  border-top: 1px solid #dee2e6;
+  padding-top: 20px;
+}
+
+.invoice-footer {
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.thank-you {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .invoice-container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .company-name {
+    font-size: 2rem;
+  }
+
+  .document-title {
+    font-size: 1.5rem;
+  }
+
+  .invoice-header {
+    text-align: center;
+  }
+
+  .document-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .logistics-table,
+  .items-table {
+    font-size: 0.8rem;
+  }
+
+  .logistics-table th,
+  .items-table th,
+  .logistics-table td,
+  .items-table td {
+    padding: 8px 4px;
+  }
+
+  .total-line {
+    font-size: 0.9rem;
+  }
+
+  .thank-you {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .company-name {
+    font-size: 1.8rem;
+  }
+
+  .document-title {
+    font-size: 1.3rem;
+  }
+
+  .logistics-table,
+  .items-table {
+    font-size: 0.75rem;
+  }
+
+  .logistics-table th,
+  .items-table th,
+  .logistics-table td,
+  .items-table td {
+    padding: 6px 3px;
+  }
+
+  .thank-you {
+    font-size: 1rem;
+  }
+}
+
+/* IMPRESIÓN */
+@media print {
+  .invoice-template {
+    background: white;
+    padding: 0;
+  }
+
+  .invoice-container {
+    box-shadow: none;
+    padding: 20px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .company-name,
+  .document-title,
+  .section-title,
+  .total-final,
+  .thank-you {
+    color: #000 !important;
+  }
+
+  .table-header-blue {
+    background-color: #333 !important;
+    color: white !important;
+  }
+
+  .footer-section {
+    page-break-inside: avoid;
+  }
+}

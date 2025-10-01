@@ -5,10 +5,10 @@
 ![Logo PerímetrosMaitenrehue](src/assets/mi-logo.png)
 
 **Sitio web profesional para empresa de cercos vibrados**  
-_Solución completa con panel de administración y gestión de productos_
+_Solución completa con panel de administración y sistema de facturación_
 
 [![Deploy Status](https://img.shields.io/badge/Deploy-GitHub%20Pages-success)](https://lagger-craft.github.io/PerimetrosMaitenrehue/)
-[![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
+[![React](https://img.shields.io/badge/React-19.1.1-blue)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-20.x-green)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.x-brightgreen)](https://mongodb.com/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://docker.com/)
@@ -22,15 +22,14 @@ _Solución completa con panel de administración y gestión de productos_
 ## 📋 Tabla de Contenido
 
 - [🎯 Características Principales](#-características-principales)
+- [💼 Sistema de Facturación Profesional](#-sistema-de-facturación-profesional)
 - [🚀 Tecnologías Utilizadas](#-tecnologías-utilizadas)
 - [📁 Estructura del Proyecto](#-estructura-del-proyecto)
 - [⚡ Instalación Rápida](#-instalación-rápida)
 - [🐳 Configuración con Docker](#-configuración-con-docker)
-- [🔧 Configuración Detallada](#-configuración-detallada)
 - [👨‍💼 Panel de Administración](#-panel-de-administración)
 - [📱 Integración WhatsApp](#-integración-whatsapp)
 - [🚀 Despliegue](#-despliegue)
-- [🛠️ Desarrollo](#-desarrollo)
 - [📱 Compatibilidad](#-compatibilidad)
 
 ---
@@ -41,9 +40,10 @@ _Solución completa con panel de administración y gestión de productos_
 
 - ✅ **Responsive Design**: 100% compatible móvil/tablet/desktop
 - ✅ **Panel de Administración**: Gestión completa de cotizaciones y productos
+- ✅ **Sistema de Facturación**: Generación profesional de cotizaciones/facturas
 - ✅ **Integración WhatsApp**: Contacto directo sin APIs externas
 - ✅ **Galería de Productos**: Visualización optimizada de cercos
-- ✅ **Sistema de Cotizaciones**: Formulario completo con validación
+- ✅ **Sistema de Cotizaciones**: Formulario completo con validación RUT
 - ✅ **Navegación Móvil**: Menú flotante para administradores
 - ✅ **Animaciones Suaves**: Transiciones profesionales
 - ✅ **Estados de Carga**: Feedback visual optimizado
@@ -59,16 +59,97 @@ _Solución completa con panel de administración y gestión de productos_
 
 ---
 
+## 💼 Sistema de Facturación Profesional
+
+### **🧾 Generación de Cotizaciones/Facturas**
+
+**Formato Profesional Completo:**
+
+#### **Encabezado Corporativo**
+- ✅ **Nombre de la empresa** en grande con espacio para eslogan
+- ✅ **Datos básicos** de la empresa (dirección, ciudad, teléfono, fax)
+- ✅ **Información del documento** (fecha, número, ID cliente, validez, responsable)
+
+#### **Datos del Cliente**
+- ✅ **Sección dedicada** "Cotización para:" / "Facturado a:"
+- ✅ **Información completa** (nombre, empresa, dirección, contacto)
+
+#### **Detalles Logísticos**
+- ✅ **Tabla con datos operativos** (vendedor, N° O/C, fecha envío, método envío, punto F.O.B., términos)
+
+#### **Productos y Servicios**
+- ✅ **Tabla detallada** con cantidad, descripción, precio unitario, impuestos y montos
+- ✅ **Cálculos automáticos** basados en metros lineales y altura del cerco
+- ✅ **Precios predefinidos** por tipo de cerco (1.50m: $45.000, 1.90m: $55.000, etc.)
+
+#### **Resumen Financiero**
+- ✅ **Subtotal, IVA (19%), otros gastos y total final**
+- ✅ **Formato de moneda chilena** (CLP)
+
+#### **Pie de Página Profesional**
+- ✅ **Mensaje de contacto** y agradecimiento
+
+### **📋 Funcionalidades de Gestión**
+
+#### **Vista Previa e Impresión**
+- ✅ **Modal de vista previa** antes de generar
+- ✅ **Función de impresión** optimizada para A4
+- ✅ **Formato responsive** para todos los dispositivos
+
+#### **Gestión de Facturas Guardadas**
+- ✅ **Lista completa** de facturas generadas
+- ✅ **Doble funcionalidad**:
+  - **"Ver Detalles"**: Información resumida
+  - **"Ver Factura"**: Documento completo formateado
+- ✅ **Vista de factura guardada** con mismo formato profesional
+- ✅ **Impresión directa** desde la lista
+- ✅ **Búsqueda y filtrado** avanzado
+
+#### **Integración con Cotizaciones**
+- ✅ **Carga automática** de datos desde cotizaciones existentes
+- ✅ **Autocompletado** de información del cliente
+- ✅ **Conversión automática** cotización → factura
+
+### **💳 Características del Sistema**
+
+```javascript
+// Precios automáticos por metro lineal
+const precios = {
+  "1.50m": 45000,  // CLP
+  "1.90m": 55000,  // CLP  
+  "2.10m": 65000,  // CLP
+  "2.40m": 75000,  // CLP
+  "Otra": 60000    // CLP (personalizada)
+};
+
+// Configuración fiscal Chile
+const impuestos = {
+  iva: 19,           // %
+  moneda: "CLP",     // Peso Chileno
+  validez: 30        // días
+};
+```
+
+### **🎨 Diseño Profesional**
+
+- **Colores corporativos** (azul profundo #007bff)
+- **Tipografía profesional** (Arial)
+- **Layout optimizado** para impresión A4
+- **Responsive design** (desktop, tablet, móvil)
+- **Estilos de impresión** dedicados
+
+---
+
 ## 🚀 Tecnologías Utilizadas
 
 ### **Frontend Stack**
 
 ```json
 {
-  "framework": "React 18.2.0",
-  "bundler": "Vite 5.0.0",
-  "ui": "React Bootstrap 2.10.0",
-  "routing": "React Router 6.8.0",
+  "framework": "React 19.1.1",
+  "bundler": "Vite 5.0.0", 
+  "ui": "React Bootstrap 2.10.10",
+  "routing": "React Router 6.26.1",
   "icons": "React Bootstrap Icons",
   "styling": "CSS3 + Custom Properties"
 }
@@ -97,8 +178,13 @@ PerMaitenrehue/
 ├── 📁 src/                  # Código fuente frontend
 │   ├── 📁 components/       # Componentes React
 │   │   ├── 📁 admin/        # Panel de administración
+│   │   │   ├── InvoicePage.jsx          # Generación de facturas
+│   │   │   ├── InvoiceListPage.jsx      # Lista de facturas
+│   │   │   ├── InvoiceTemplate.jsx      # Plantilla profesional
+│   │   │   ├── AdminDashboard.jsx       # Dashboard principal
+│   │   │   └── BodegaPage.jsx           # Gestión de productos
 │   │   ├── 📁 auth/         # Autenticación
-│   │   └── 📁 layout/       # Componentes de layout
+│   │   └── QuotePage.jsx    # Formulario de cotizaciones
 │   ├── 📁 context/          # Context API
 │   ├── 📁 hooks/            # Custom hooks
 │   └── main.jsx             # Punto de entrada
@@ -193,8 +279,6 @@ docker-compose ps
 
 ### **Docker Compose Incluido**
 
-El proyecto incluye configuración completa de Docker:
-
 ```yaml
 # docker-compose.yml
 version: "3.8"
@@ -246,75 +330,6 @@ docker-compose down
 docker-compose down -v
 ```
 
-### **Crear Usuario Administrador**
-
-```bash
-# Conectar a MongoDB
-docker exec -it perimetros_mongo mongosh
-
-# En MongoDB shell:
-use perimetros
-db.users.insertOne({
-  username: "admin",
-  email: "admin@perimetros.com",
-  password: "$2a$10$hashedPasswordHere",
-  role: "admin",
-  createdAt: new Date()
-})
-```
-
----
-
-## 🔧 Configuración Detallada
-
-### **Configuración Base de Datos**
-
-```javascript
-// server/config/database.js
-const mongoose = require("mongoose");
-
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
-    process.exit(1);
-  }
-};
-
-module.exports = connectDB;
-```
-
-### **Configuración JWT**
-
-```javascript
-// server/middleware/auth.js
-const jwt = require("jsonwebtoken");
-
-const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
-
-  if (!token) {
-    return res.status(401).json({ error: "Access denied" });
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      return res.status(403).json({ error: "Invalid token" });
-    }
-    req.user = user;
-    next();
-  });
-};
-
-module.exports = authenticateToken;
-```
-
 ---
 
 ## 👨‍💼 Panel de Administración
@@ -330,51 +345,41 @@ module.exports = authenticateToken;
 
 #### **1. Gestión de Cotizaciones (`/administracion/dashboard`)**
 
-```jsx
-// Características principales
-- ✅ Lista completa de cotizaciones recibidas
-- ✅ Vista detallada en modal responsive
-- ✅ Filtrado y búsqueda en tiempo real
-- ✅ Estadísticas de conversión
-- ✅ Exportación de datos
+- ✅ **Lista completa** de cotizaciones recibidas
+- ✅ **Vista detallada** en modal responsive
+- ✅ **Filtrado y búsqueda** en tiempo real
+- ✅ **Estadísticas** de conversión
+- ✅ **Conversión a factura** directa
 
-// Estructura de datos de cotización
-{
-  "name": "Nombre del cliente",
-  "rut": "12.345.678-9",
-  "phone": "+56 9 1234 5678",
-  "email": "cliente@email.com",
-  "address": "Dirección completa",
-  "fenceHeight": "1.8 metros",
-  "linearMeters": "25",
-  "message": "Mensaje adicional",
-  "timestamp": "2024-09-30T10:30:00Z"
-}
-```
+#### **2. Generación de Facturas (`/administracion/facturacion`)**
 
-#### **2. Gestión de Bodega (`/administracion/bodega`)**
+- ✅ **Formulario completo** de datos del cliente
+- ✅ **Carga desde cotizaciones** existentes
+- ✅ **Vista previa profesional** antes de generar
+- ✅ **Plantilla de cotización/factura** con formato comercial
+- ✅ **Función de impresión** integrada
+- ✅ **Validación de datos** completa (incluyendo RUT chileno)
 
-```jsx
-// Funcionalidades CRUD completas
-- ✅ Agregar nuevos productos con imágenes
-- ✅ Editar productos existentes
-- ✅ Eliminar productos con confirmación
-- ✅ Control de stock en tiempo real
-- ✅ Búsqueda avanzada con normalización
-- ✅ Vista dual: tabla (desktop) + cards (móvil)
+#### **3. Lista de Facturas (`/administracion/facturas`)**
 
-// Estructura de producto
-{
-  "name": "Cerco Vibrado 1.8m",
-  "description": "Descripción detallada del producto",
-  "price": 25000,
-  "stock": 150,
-  "image": "ruta/a/imagen.webp",
-  "category": "cercos"
-}
-```
+- ✅ **Gestión completa** de facturas generadas
+- ✅ **Doble vista**:
+  - **Ver Detalles**: Información resumida
+  - **Ver Factura**: Documento completo formateado
+- ✅ **Búsqueda avanzada** por nombre, empresa, email
+- ✅ **Filtros por estado** (borrador, pendiente, pagada, cancelada)
+- ✅ **Impresión directa** desde la lista
+- ✅ **Estados visuales** con badges de color
 
-#### **3. Navegación Móvil Optimizada**
+#### **4. Gestión de Bodega (`/administracion/bodega`)**
+
+- ✅ **CRUD completo** de productos
+- ✅ **Subida de imágenes** optimizada
+- ✅ **Control de stock** en tiempo real
+- ✅ **Búsqueda con normalización** de texto
+- ✅ **Vista dual**: tabla (desktop) + cards (móvil)
+
+### **📱 Navegación Móvil Optimizada**
 
 - **Botón Flotante**: Acceso rápido en dispositivos móviles
 - **Offcanvas Lateral**: Menú deslizante con animaciones
@@ -418,26 +423,6 @@ const handleWhatsAppClick = (e) => {
 };
 ```
 
-### **Mensajes Contextuales**
-
-```javascript
-// Mensajes predefinidos según el contexto
-const messages = {
-  general:
-    "Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?",
-  product: (name) =>
-    `Hola, me interesa el ${name}. ¿Podrían darme más información y cotización?`,
-  quote: "Hola, me gustaría solicitar una cotización para cercos vibrados.",
-};
-```
-
-### **Página de Debug (`/whatsapp-test`)**
-
-- ✅ **Información del dispositivo**: User Agent, Platform, dimensiones
-- ✅ **4 URLs de prueba**: Diferentes formatos de WhatsApp
-- ✅ **3 métodos de apertura**: window.location, window.open, createElement
-- ✅ **Diagnóstico visual**: Compatibilidad en tiempo real
-
 ### **Compatibilidad Universal**
 
 | Dispositivo      | Método           | Estado          |
@@ -462,47 +447,6 @@ npm run deploy
 # 3. GitHub Pages actualiza automáticamente
 ```
 
-### **Backend en Producción**
-
-```bash
-# Opciones recomendadas:
-1. Railway: Deploy directo desde GitHub
-2. Heroku: Con MongoDB Atlas
-3. DigitalOcean: VPS con Docker
-4. AWS: EC2 + DocumentDB
-
-# Variables de entorno de producción:
-NODE_ENV=production
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/db
-JWT_SECRET=clave_super_segura_produccion
-FRONTEND_URL=https://lagger-craft.github.io
-```
-
-### **Configuración de Producción**
-
-```javascript
-// vite.config.js - Build optimizado
-export default defineConfig({
-  base: "/PerimetrosMaitenrehue/",
-  build: {
-    outDir: "dist",
-    minify: "terser",
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          bootstrap: ["react-bootstrap"],
-        },
-      },
-    },
-  },
-});
-```
-
----
-
-## 🛠️ Desarrollo
-
 ### **Scripts Disponibles**
 
 #### **Frontend**
@@ -520,55 +464,6 @@ npm run deploy       # Deploy automático a GitHub Pages
 cd server
 npm run dev          # Desarrollo con nodemon (auto-restart)
 npm run start        # Producción (node server.js)
-npm run start:prod   # Alias para producción
-```
-
-### **Flujo de Desarrollo**
-
-```bash
-# Terminal 1: Frontend con hot reload
-npm run dev
-
-# Terminal 2: Backend con auto-restart
-cd server && npm run dev
-
-# Terminal 3: MongoDB con Docker
-docker-compose up -d mongodb
-
-# O todo junto:
-docker-compose up -d
-```
-
-### **Hot Reload Configurado**
-
-```javascript
-// Vite: Cambios en React → Recarga instantánea
-// Nodemon: Cambios en server/ → Reinicio automático
-// Proxy: /api requests → http://localhost:5000
-
-// vite.config.js
-server: {
-  proxy: {
-    '/api': {
-      target: 'http://localhost:5000',
-      changeOrigin: true
-    }
-  }
-}
-```
-
-### **Debugging**
-
-```javascript
-// Frontend (Chrome DevTools)
-console.log("Estado:", state);
-console.table(usuarios);
-
-// Backend (terminal)
-console.log("Usuario autenticado:", req.user);
-
-// MongoDB (logs)
-mongoose.set("debug", true); // Solo desarrollo
 ```
 
 ---
@@ -623,22 +518,6 @@ mongoose.set("debug", true); // Solo desarrollo
 
 ---
 
-## 📞 Soporte
-
-### **Documentación Técnica**
-
-- Ver carpeta `/Informes/` para reportes detallados
-- Revisar comentarios en el código para implementación
-- Consultar `/whatsapp-test` para debug de WhatsApp
-
-### **Reportar Problemas**
-
-1. **GitHub Issues**: Para bugs del código
-2. **WhatsApp**: Para soporte directo
-3. **Email**: Para consultas comerciales
-
----
-
 ## 📄 Licencia
 
 Este proyecto está bajo la **Licencia MIT**. Ver archivo `LICENSE` para detalles.
@@ -652,8 +531,8 @@ Este proyecto está bajo la **Licencia MIT**. Ver archivo `LICENSE` para detalle
 [![GitHub Stars](https://img.shields.io/github/stars/Lagger-craft/PerimetrosMaitenrehue?style=social)](https://github.com/Lagger-craft/PerimetrosMaitenrehue/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Lagger-craft/PerimetrosMaitenrehue?style=social)](https://github.com/Lagger-craft/PerimetrosMaitenrehue/network/members)
 
-**Versión 2.0** - Optimizado para móviles y desktop  
-**Última actualización**: 30 de Septiembre 2025
+**Versión 3.0** - Sistema de Facturación Profesional  
+**Última actualización**: Enero 2025
 
 [⬆️ Volver al inicio](#-perímetrosmaitenrehue---sitio-web-completo)
 

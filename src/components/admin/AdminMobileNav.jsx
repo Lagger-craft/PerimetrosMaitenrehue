@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Navbar, Offcanvas, Nav, Button } from 'react-bootstrap';
-import { List, House, ClipboardData, BoxSeam, PersonFillGear } from 'react-bootstrap-icons';
+import { List, House, ClipboardData, BoxSeam, PersonFillGear, Receipt, FileText } from 'react-bootstrap-icons';
 import './AdminMobileNav.css';
 
 const AdminMobileNav = ({ user, onLogout }) => {
@@ -69,6 +69,26 @@ const AdminMobileNav = ({ user, onLogout }) => {
               >
                 <BoxSeam className="me-2" />
                 Gestión de Bodega
+              </Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link
+                to="/administracion/facturacion"
+                className={`nav-link admin-nav-link ${isActive('/administracion/facturacion') ? 'active' : ''}`}
+                onClick={handleClose}
+              >
+                <Receipt className="me-2" />
+                Generar Factura
+              </Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link
+                to="/administracion/facturas"
+                className={`nav-link admin-nav-link ${isActive('/administracion/facturas') ? 'active' : ''}`}
+                onClick={handleClose}
+              >
+                <FileText className="me-2" />
+                Ver Facturas
               </Link>
             </Nav.Item>
           </Nav>

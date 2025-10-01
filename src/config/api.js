@@ -9,9 +9,9 @@ export const API_BASE_URL = (() => {
     // Options: Vercel, Netlify Functions, Railway, Heroku, etc.
     // For now, fallback to localhost for development
     console.warn('Backend API needs to be deployed for production use');
-    return 'http://localhost:5003';  // Updated to use port 5003
+    return 'http://localhost:5004';  // Updated to use port 5004
   }
-  return 'http://localhost:5003';  // Updated to use port 5003
+  return 'http://localhost:5004';  // Updated to use port 5004
 })();
 
 // API endpoints
@@ -22,6 +22,7 @@ export const API_ENDPOINTS = {
   },
   products: `${API_BASE_URL}/api/products`,
   quotes: `${API_BASE_URL}/api/quotes`,
+  invoices: `${API_BASE_URL}/api/invoices`,
   uploads: `${API_BASE_URL}/uploads`,
 };
 

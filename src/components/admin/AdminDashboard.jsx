@@ -107,6 +107,24 @@ const AdminDashboard = () => {
           {/* Resumen estadístico */}
           <div className="admin-stats-summary">
             <h4>Total Cotizaciones: {quotes.length}</h4>
+            <div className="mt-3">
+              <Button 
+                variant="success" 
+                onClick={() => navigate('/administracion/facturacion')}
+                className="me-2"
+              >
+                <span className="me-2">📄</span>
+                Generar Nueva Factura
+              </Button>
+              <Button 
+                variant="info" 
+                onClick={() => navigate('/administracion/facturas')}
+                className="me-2"
+              >
+                <span className="me-2">📋</span>
+                Ver Facturas
+              </Button>
+            </div>
           </div>
           
           <Row xs={1} sm={2} lg={3} xl={4} className="g-3 g-md-4">
@@ -128,10 +146,18 @@ const AdminDashboard = () => {
                       <Button
                         variant="primary"
                         onClick={() => handleShowDetail(quote)}
-                        className="mt-auto touch-feedback"
+                        className="mt-auto touch-feedback mb-2"
                         size="sm"
                       >
                         Ver Detalles
+                      </Button>
+                      <Button
+                        variant="success"
+                        onClick={() => navigate('/administracion/facturacion', { state: { selectedQuote: quote } })}
+                        className="touch-feedback"
+                        size="sm"
+                      >
+                        📄 Crear Factura
                       </Button>
                     </Card.Body>
                   </Card>

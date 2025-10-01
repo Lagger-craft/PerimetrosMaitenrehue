@@ -27,7 +27,11 @@ const FENCE_COMPONENTS_BY_HEIGHT = {
     "1 Barda (10cm de altura efectiva)",
   ],
   "2.10m": ["4 Placas de 50cm de alto", "1 Barda (10cm de altura efectiva)"],
-  "2.40m": ["4 Placas de 50cm de alto", "1 Barda (30cm de altura efectiva)"],
+  "2.40m": [
+    "4 Placas de 50cm de alto",
+    "1 Placa de 30cm de alto",
+    "1 Barda (10 cm de altura efectiva",
+  ],
   Otra: [
     "Componentes para altura personalizada: Por favor, consulta con un asesor.",
   ],

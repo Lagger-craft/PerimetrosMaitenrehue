@@ -1,31 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button, Nav } from "react-bootstrap";
-import { CheckCircleFill, Telephone, Facebook, Whatsapp } from "react-bootstrap-icons";
+import {
+  CheckCircleFill,
+  Telephone,
+  Facebook,
+  Whatsapp,
+} from "react-bootstrap-icons";
 import "./ModalCommon.css"; // Importar el CSS común para modales
 
 const InfoModal = ({ show, handleClose }) => {
-  const whatsappURL = "https://wa.me/56987761691?text=" + encodeURIComponent("Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?");
-  
+  const whatsappURL =
+    "https://wa.me/56987761691?text=" +
+    encodeURIComponent(
+      "Hola, me interesa obtener información sobre sus cercos vibrados. ¿Podrían ayudarme?",
+    );
+
   const handleWhatsAppClick = (e) => {
     e.preventDefault();
-    
+
     // Método más robusto para abrir WhatsApp
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = whatsappURL;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     // Fallback para móviles
     setTimeout(() => {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent,
+        )
+      ) {
         window.location.href = whatsappURL;
       }
     }, 100);
-    
+
     handleClose();
   };
 
@@ -66,7 +79,7 @@ const InfoModal = ({ show, handleClose }) => {
           <Nav.Link
             onClick={handleWhatsAppClick}
             className="d-flex align-items-center contact-link-modal whatsapp-link"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
           >
             <Whatsapp className="me-2" />
             Contactar por WhatsApp
